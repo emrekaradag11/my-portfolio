@@ -1,64 +1,34 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useRef } from 'react'
 import transated from '../../helpers/helper'
+import { useDispatch, useSelector } from 'react-redux';
+import Image from 'next/image'
 
 function Connect() {
-    const connectElems = [
-        {
-            'title': 'Github',
-            'img': '/images/githubWp.png',
-            'url': 'https://github.com/emrekaradag11',
-        },
-        {
-            'title': 'Linked-in',
-            'img': '/images/linkedinWp.jpg',
-            'url': 'https://www.linkedin.com/in/emrekaradag/',
-        },
-        {
-            'title': 'Instagram',
-            'img': '/images/instagramWp.jpg',
-            'url': '#',
-        },
-        {
-            'title': 'Twitter',
-            'img': '/images/twitterWp.jpg',
-            'url': '#',
-        },
-    ]
+    interface connectElems {
+        img: string;
+        title: string;
+        url: string;
+        id: string;
+    }
 
+    const connectElems = useSelector((state: any) => (state.reducers.connectElems ?? {}))
+    
     useEffect(() => {
-        window.addEventListener('scroll', handleScroll);  
+        window.addEventListener('scroll', handleScroll);
     });
-    useEffect(() => {
-        const contentBox:HTMLElement = document.getElementById('connectBox')!
-        const boxes = contentBox.getElementsByClassName('boxInner')
-        if(contentBox != null && boxes.length){
-            for (let i = 0; i < boxes.length; i++) {
-                const element = boxes[i] as HTMLElement;
-                let html = "";
-                for(let s = 0; s <= 20; s++){
-                    html += element.innerHTML
-                }
-                element.innerHTML = html
-            }
-        }
-    },[]);
-
-    const handleScroll = () =>  {
-        const connectBox:Element = document.getElementById('connectBox')!;
-        if(connectBox != null){
-            const boxes = connectBox.getElementsByClassName('box')!;
-            if(boxes != null){
-                for(let s = 0; s < boxes.length; s++){
-                    let elemInner:any = boxes[s].getElementsByClassName('boxInner')[0];
-                    
-                    if(s % 2 === 0){
-                        elemInner.style.transform = `translateX(-${window.scrollY / 5}px)`;
-                    }else{
-                        elemInner.style.transform = `translateX(${window.scrollY / 5}px)`;
-                    }
+    
+    const handleScroll = () => {
+        const boxes = document.getElementsByClassName('box')!;
+        if (boxes != null) {
+            for (let s = 0; s < boxes.length; s++) {
+                let elemInner: any = boxes[s].getElementsByClassName('boxInner')[0];
+                if (s % 2 === 0) {
+                    elemInner.style.setProperty('transform',`translateX(-${window.scrollY / 5}px)`);
+                } else {
+                    elemInner.style.setProperty('transform',`translateX(${window.scrollY / 5}px)`);
                 }
             }
-        }
+        } 
     };
 
     return (
@@ -66,13 +36,29 @@ function Connect() {
             <strong className='sectionTitle mb-14'>{transated("connectWithMe")}</strong>
             <section id='connectBox'>
                 {
-                    connectElems.map((item, key) => {
+                    connectElems.map((item:connectElems) => {
                         return (
-                            <a key={key} href={item.url} target='_blank' title={item.title} rel="nofollow noreferrer" className="box"><div className="boxInner"><span className='title'>{item.title}</span><div className="img"><img src={'./' + item.img} alt={item.title} /></div></div></a>
+                            <a key={item.id} href={item.url} target='_blank' title={item.title} rel="nofollow noreferrer" className="box">
+                                <div className="boxInner">
+                                    {[...Array(10)].map((x, i) =>
+                                        <div key={i}>
+                                            <span className='title'>{item.title}</span>
+                                            <div className="img">
+                                                <Image
+                                                    src={item.img}
+                                                    alt={item.title}
+                                                    className="block"
+                                                    width={250}
+                                                    height={50}
+                                                />
+                                            </div>
+                                        </div>
+                                    )}
+                                </div>
+                            </a>
                         )
                     })
                 }
-
             </section>
         </section>
     )

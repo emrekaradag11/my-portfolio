@@ -4,6 +4,7 @@ import { createSlice } from "@reduxjs/toolkit";
 interface stateInterfaces {
     language: number,
     blogList: object,
+    connectElems: object,
 }
 
 const initialState: stateInterfaces = {
@@ -13,27 +14,57 @@ const initialState: stateInterfaces = {
             "title": "Lorem Title",
             "desc": "Lorem Desc",
             "date": "20 Nisan 2022",
-            "slug": "Blog?slug=test",
+            "slug": "Blog/test",
+            "id": "1",
         },
         {
             "title": "Lorem Title",
             "desc": "Lorem Desc",
             "date": "20 Nisan 2022",
-            "slug": "Blog?slug=test2",
+            "slug": "Blog/test2",
+            "id": "2",
         },
         {
             "title": "Lorem Title",
             "desc": "Lorem Desc",
             "date": "20 Nisan 2022",
-            "slug": "Blog?slug=test3",
+            "slug": "Blog/test3",
+            "id": "3",
         },
         {
             "title": "Lorem Title",
             "desc": "Lorem Desc",
             "date": "20 Nisan 2022",
-            "slug": "Blog?slug=test4",
+            "slug": "Blog/test4",
+            "id": "4",
         },
-    ]
+    ],
+    connectElems : [
+        {
+            'id' : '1',
+            'title': 'Github',
+            'img': '/images/githubWp.png',
+            'url': 'https://github.com/emrekaradag11',
+        },
+        {
+            'id' : '2',
+            'title': 'Linked-in',
+            'img': '/images/linkedinWp.jpg',
+            'url': 'https://www.linkedin.com/in/emrekaradag/',
+        },
+        {
+            'id' : '3',
+            'title': 'Instagram',
+            'img': '/images/instagramWp.jpg',
+            'url': '#',
+        },
+        {
+            'id' : '4',
+            'title': 'Twitter',
+            'img': '/images/twitterWp.jpg',
+            'url': '#',
+        },
+    ],
 }
 
 
@@ -44,16 +75,10 @@ const states = createSlice({
         changeLang: (state, action) => {
             state.language = action.payload;
             //window.location.reload()
-        },
-        getBlogList: (state, action) => {
-
-            return state.blogList
-
-
-        },
+        }, 
     }
 })
 
-export const { changeLang, getBlogList } = states.actions
+export const { changeLang } = states.actions
 
 export default states.reducer
