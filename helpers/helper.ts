@@ -16,7 +16,6 @@ const transated = (lang:string) => {
         buymecoffee: ["Buy Me a Coffee", "Buy Me a Coffee"],
         connectWithMe: ["Connect With me", "Bağlantı Kurun"],
         skills: ["Skills", "Yetenekler"],
-        works: ["Works", "Çalışmalar"],
         about_text: ["Hi {{img}}, my name is Emre. I am a front end developer in Turkey. I'm passionate about software development. I love to network with other people and always looking for new friends or collegues.", "Merhaba {{img}}, ben Emre. Türkiye'de front end geliştirici olarak görev yapıyorum. Yazılım geliştirme konusunda tutkuluyum. Diğer geliştiricilerle bağlantı kurmaya ve her zaman yeni arkadaşlar ve meslektaşlar edinmeye ilgi duyarım."],
     }
     

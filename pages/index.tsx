@@ -1,7 +1,7 @@
 import Head from 'next/head'
 import Slider from '../components/Sections/Slider'
 import About from '../components/Sections/About'
-import Works from '../components/Sections/Works';
+import Skills from '../components/Sections/Skills';
 import Blog from '../components/Sections/Blog';
 import Connect from '../components/Sections/Connect';
 import Layout from '../components/Layout/Layout';
@@ -17,7 +17,7 @@ export default function Home({}: Props) {
       </Head>
       <Slider />
       <About />
-      <Works />
+      <Skills />
       <Blog />
       <Connect />
     </Layout>

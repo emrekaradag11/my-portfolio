@@ -1,0 +1,111 @@
+{
+    "sunday": [
+        {
+            "type": "free",
+            "startTime": "10:00:00",
+            "endTime": "23:59:00"
+        },
+        {
+            "type": "sleep",
+            "startTime": "00:00:00",
+            "endTime": "10:00:00"
+        }
+    ],
+    "monday": [
+        {
+            "type": "free",
+            "startTime": "18:30:00",
+            "endTime": "23:59:00"
+        },
+        {
+            "type": "sleep",
+            "startTime": "00:00:00",
+            "endTime": "08:20:00"
+        },
+        {
+            "type": "work",
+            "startTime": "08:30:00",
+            "endTime": "18:30:00"
+        }
+    ],
+    "tuesday": [
+        {
+            "type": "free",
+            "startTime": "18:30:00",
+            "endTime": "23:59:00"
+        },
+        {
+            "type": "sleep",
+            "startTime": "00:00:00",
+            "endTime": "08:20:00"
+        },
+        {
+            "type": "work",
+            "startTime": "08:30:00",
+            "endTime": "18:30:00"
+        }
+    ],
+    "wednesday": [
+        {
+            "type": "free",
+            "startTime": "18:30:00",
+            "endTime": "23:59:00"
+        },
+        {
+            "type": "sleep",
+            "startTime": "00:00:00",
+            "endTime": "08:20:00"
+        },
+        {
+            "type": "work",
+            "startTime": "08:30:00",
+            "endTime": "18:30:00"
+        }
+    ],
+    "thursday": [
+        {
+            "type": "free",
+            "startTime": "18:30:00",
+            "endTime": "23:59:00"
+        },
+        {
+            "type": "sleep",
+            "startTime": "00:00:00",
+            "endTime": "08:20:00"
+        },
+        {
+            "type": "work",
+            "startTime": "08:30:00",
+            "endTime": "18:30:00"
+        }
+    ],
+    "friday": [
+        {
+            "type": "free",
+            "startTime": "18:30:00",
+            "endTime": "23:59:00"
+        },
+        {
+            "type": "sleep",
+            "startTime": "00:00:00",
+            "endTime": "08:20:00"
+        },
+        {
+            "type": "work",
+            "startTime": "08:30:00",
+            "endTime": "18:30:00"
+        }
+    ],
+    "saturday": [
+        {
+            "type": "free",
+            "startTime": "10:00:00",
+            "endTime": "23:59:00"
+        },
+        {
+            "type": "sleep",
+            "startTime": "00:00:00",
+            "endTime": "10:00:00"
+        }
+    ]
+}

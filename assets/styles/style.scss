@@ -16,6 +16,7 @@ html {
 body {
     margin: 0;
     font-family: "Sono";
+    color: $themeColor;
 }
 * {
     margin: 0;
@@ -156,41 +157,54 @@ template {
     display: none;
 }
 
-
-.h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h5, h6 {
+.h1,
+.h2,
+.h3,
+.h4,
+.h5,
+.h6,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
     margin-top: 0;
-    margin-bottom: .5rem;
+    margin-bottom: 0.5rem;
     font-weight: 500;
-    line-height:1.2
+    line-height: 1.2;
 }
 
-.h1, h1 {
-    font-size:calc(1.375rem + 1.5vw)
+.h1,
+h1 {
+    font-size: calc(1.375rem + 1.5vw);
 }
 
-
-.h2, h2 {
-    font-size:calc(1.325rem + .9vw)
+.h2,
+h2 {
+    font-size: calc(1.325rem + 0.9vw);
 }
 
-
-.h3, h3 {
-    font-size:calc(1.3rem + .6vw)
+.h3,
+h3 {
+    font-size: calc(1.3rem + 0.6vw);
 }
 
-
-.h4, h4 {
-    font-size:calc(1.275rem + .3vw)
+.h4,
+h4 {
+    font-size: calc(1.275rem + 0.3vw);
 }
 
-.h5, h5 {
-    font-size:1.25rem
+.h5,
+h5 {
+    font-size: 1.25rem;
 }
 
-.h6, h6 {
-    font-size:1rem
+.h6,
+h6 {
+    font-size: 1rem;
 }
-p{
+p {
     margin-bottom: 1em;
 }
 
@@ -219,8 +233,8 @@ p{
         text-align: center;
         letter-spacing: 0.1px;
         color: #ffffff;
-        text-shadow: 3px -3px 0 #000, -3px -3px 0 #000, 3px 3px 0 #000, 0 4px 0 #000, 0 -4px 0 #000, 4px 0 0 #000,
-            -8px 7px 0 #000;
+        text-shadow: 3px -3px 0 $themeColor, -3px -3px 0 $themeColor, 3px 3px 0 $themeColor, 0 4px 0 $themeColor,
+            0 -4px 0 $themeColor, 4px 0 0 $themeColor, -8px 7px 0 $themeColor;
     }
     .sectionTitleSm {
         font-size: 2rem;
@@ -238,7 +252,6 @@ p{
             width: 100%;
             height: 100%;
             transition: all 0.5s ease-in-out;
-            background: red;
             &:nth-child(1) {
                 display: block;
                 background: #e0e0e0;
@@ -366,8 +379,8 @@ header {
                 margin: 0;
                 font-weight: 700;
                 color: white;
-                text-shadow: 3px -3px 0 #000, -3px -3px 0 #000, 3px 3px 0 #000, 0 4px 0 #000, 0 -4px 0 #000,
-                    4px 0 0 #000, -8px 7px 0 #000;
+                text-shadow: 3px -3px 0 $themeColor, -3px -3px 0 $themeColor, 3px 3px 0 $themeColor, 0 4px 0 $themeColor,
+                    0 -4px 0 $themeColor, 4px 0 0 $themeColor, -8px 7px 0 $themeColor;
                 .word {
                     display: block;
                     position: relative;
@@ -466,6 +479,7 @@ header {
         padding: 8px 20px;
         font-size: 1.3rem;
         align-items: center;
+        position: relative;
         .imgHover {
             position: fixed;
             user-select: none;
@@ -488,8 +502,8 @@ header {
     }
 }
 
-#works {
-    background-color: #ffdd00;
+#skills {
+    background-color: $themeColor2;
     padding: 100px 0;
     border-radius: $siteRadius;
     margin-bottom: 200px;
@@ -497,6 +511,9 @@ header {
         display: flex;
         align-items: center;
         justify-content: center;
+        position: sticky;
+        top: 80px;
+        z-index: 1;
         .workTabs {
             display: flex;
             align-items: center;
@@ -505,25 +522,84 @@ header {
             padding: 10px;
             border-radius: 20px;
             margin: 50px 0 0 0;
-            border: 2px solid #212529;
-            box-shadow: 0 3px 0 0 #212529;
+            border: 2px solid $themeColor;
+            box-shadow: 0 3px 0 0 $themeColor;
             > li {
                 display: block;
                 padding: 10px 20px;
                 border-radius: 10px;
                 min-width: 180px;
                 text-align: center;
-                &:is(.active){
+                &:is(.active) {
                     background-color: $themeColor2;
-                    color: rgb(0, 0, 0);
+                    color: $themeColor;
                 }
                 + li {
                     margin-left: 20px;
                 }
                 > span {
-
                 }
             }
+        }
+    }
+    .workItem {
+        padding: 2.08em;
+        background-color: #f2f2f2;
+        border-radius: 30px;
+        margin-bottom: 2em;
+        display: flex;
+        justify-content: space-between;
+        .left {
+            display: inline-grid;
+            align-content: space-between;
+        }
+        .right {
+            min-width: 30%;
+            margin-left: 15%;
+            .img {
+                position: relative;
+                &::before {
+                    content: "";
+                    background-color: rgba(5, 0, 56, 0.06);
+                    position: absolute;
+                    width: 100%;
+                    right: 0;
+                    top: 0;
+                    height: 100%;
+                    border-radius: 15px;
+                    transition: all .3s ease-in-out;
+                }
+                img {
+                    display: block;
+                    transform: translateX(-30%);
+                    transition: all .3s ease-in-out;
+                }
+            }
+        }
+        &:hover{
+            .right{
+                .img{
+                    &::before {
+                        width: 120%;
+                    }
+                    img{
+                        transform: translateX(-15%);
+                    }
+                }
+            }
+        }
+        .title {
+            display: block;
+            font-size: 2.22em;
+            line-height: 1.1;
+            font-weight: 500;
+            letter-spacing: -0.04em;
+        }
+        .desc {
+            display: block;
+            margin: 0;
+            font-size: 1.2em;
+            line-height: 1.3;
         }
     }
 }
@@ -637,7 +713,7 @@ footer {
         }
         &:hover {
             background-color: $themeColor2;
-            color: #000;
+            color: $themeColor;
             .boxInner {
                 animation: translateX 9s infinite linear;
             }

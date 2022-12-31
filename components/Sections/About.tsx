@@ -1,57 +1,62 @@
 import React, { useEffect, useRef } from 'react'
 import transated from '../../helpers/helper'
 import Image from 'next/image'
+import moment from 'moment';
+import statusListJson from '../../shared/jsons/statusList.json'
 
 function About() {
 
-    const aboutTitleRef =  useRef<HTMLDivElement>(null);
-    let imgHoverRef =  useRef<HTMLDivElement>(null);
+    const aboutTitleRef = useRef<HTMLDivElement>(null);
+    let imgHoverRef = useRef<HTMLDivElement>(null);
 
     const handleTitleEffect = () => {
-        const elem:any = aboutTitleRef.current!
+        const elem: any = aboutTitleRef.current!
         const slider: HTMLElement = document.getElementById('slider')!
         if (slider != null) {
             const calc = (-window.scrollY + slider.offsetHeight) / 10;
             if (elem != null && calc > 0) {
-                elem.style.setProperty('letter-spacing',`${calc}px`);
+                elem.style.setProperty('letter-spacing', `${calc}px`);
             }
         }
     }
 
-    /*burayı daha mantıklı hesaplayabilirdim ama çok önemli değil. 
-    sadece arayüzde gözükecek küçük bi yapı için */
-    const nowDate = new Date();
-    const currentDate = new Date('2023-01-01 ' + nowDate.getHours().toString().padStart(2, '0') + ':' + nowDate.getMinutes().toString().padStart(2, '0'));
+    /*
+    
+    burayı aslında api'dan listelesem daha sağlıklı olacaktı ama çok önemli değil. 
+    sadece arayüzde gözükecek küçük bi yapı için 
+    
+    */
 
+    
+    const format = 'HH:mm:ss'
+    const currentDate = moment()
+    const currentWeekDay = currentDate.format('dddd').toLocaleLowerCase()
+    const currentTime = moment(currentDate.format(format), format);
 
-    let statusList = [
-        {
+    const iconList : any = {
+        free : {
             icon: "freeIcon.png",
             img: "freeImg.webp",
             text: transated('free_time'),
-            startTime: "2023-01-01 18:30",
-            endTime: "2023-01-01 23:59",
         },
-        {
+        sleep : {
             icon: "sleepingIcon.png",
             img: "sleepingImg.webp",
             text: transated('sleeping'),
-            startTime: "2023-01-01 00:00",
-            endTime: "2023-01-01 08:20",
         },
-        {
+        work : {
             icon: "workingIcon.png",
             img: "workingImg.gif",
             text: transated('working'),
-            startTime: "2023-01-01 08:30",
-            endTime: "2023-01-01 18:30",
         },
-    ];
+    }
 
-    const status = statusList.find(x => {
-        let startDate = new Date(x.startTime);
-        let endDate = new Date(x.endTime);
-        return startDate.getTime() <= currentDate.getTime() && endDate.getTime() >= currentDate.getTime()
+    
+    
+    const status = statusListJson[currentWeekDay].find(item => {
+        const startTime = moment(item.startTime, format);
+        const endTime = moment(item.endTime, format);
+        return currentTime.isBetween(startTime, endTime)
     })
 
     useEffect(() => {
@@ -60,8 +65,8 @@ function About() {
 
     const handleHoverEffect = (e: any) => {
         if (null !== imgHoverRef.current) {
-            imgHoverRef.current.style.setProperty('left',`${e.clientX}px`);
-            imgHoverRef.current.style.setProperty('top',`${e.clientY}px`);
+            imgHoverRef.current.style.setProperty('left', `${e.clientX}px`);
+            imgHoverRef.current.style.setProperty('top', `${e.clientY}px`);
         }
     }
 
@@ -76,7 +81,7 @@ function About() {
                             <div className="myStatus" onMouseMove={(e) => handleHoverEffect(e)} id='myStatus'>
                                 <div className="imgHover" ref={imgHoverRef} id='imgHover'>
                                     <Image
-                                        src={"/images/status/" + status?.img}
+                                        src={"/images/status/" + iconList[status.type].img}
                                         alt='HoverImage'
                                         className="block"
                                         width={376}
@@ -84,18 +89,18 @@ function About() {
                                         layout="fixed"
                                     />
                                 </div>
-                                <div className="clock"> {currentDate.getHours().toString().padStart(2, '0')}<span className='clockDot'>:</span>{currentDate.getMinutes().toString().padStart(2, '0')}</div>
+                                <div className="clock"> {currentDate.hours()}<span className='clockDot'>:</span>{currentDate.minute().toString().padStart(2, '0')}</div>
                                 <div className="status">
                                     <span className="icon inline-block align-middle mr-2">
                                         <Image
-                                            src={"/images/status/" + status?.icon}
-                                            alt={status?.text ?? 'image'}
+                                            src={"/images/status/" + iconList[status.type].icon}
+                                            alt={iconList[status.type].text ?? 'image'}
                                             width={32}
                                             height={32}
                                             className="block"
                                         />
                                     </span>
-                                    {status?.text}
+                                    {iconList[status.type].text}
                                 </div>
                             </div>
                         </div>
