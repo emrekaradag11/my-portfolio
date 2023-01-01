@@ -1,3 +1,4 @@
+import Head from 'next/head'
 import React from 'react'
 import Layout from '../../components/Layout/Layout';
 import { useRouter } from 'next/router';
@@ -10,12 +11,16 @@ export default function BlogDetail() {
 
   return (
     <Layout>
+
+        <Head>
+            <title>{slug} - Emre Karadağ | Frontend Developer</title>
+            <meta name="description" content="Blog - Emre Karadağ | Frontend Developer" />
+        </Head>
         <div className='appPage'>
         <div className='blogDetail container mx-auto flex flex-row'> 
             <div className="md:basis-10/12 mx-auto">
             <strong className="sectionTitleSm mb-5">Hiring SaaS execs is Horses for courses {slug}</strong>
             <div className='img'>
-
                 <Image
                     src={"/images/status/freeImg.webp"}
                     alt='HoverImage'

@@ -1,3 +1,4 @@
+import Head from 'next/head'
 import React from 'react'
 import Layout from '../../components/Layout/Layout';
 import Item from '../../components/Blog/Item'
@@ -16,6 +17,10 @@ export default function Blog() {
     const blogList = useSelector((state: any) => (state.reducers.blogList ?? {}))
     return (
         <Layout>
+            <Head>
+                <title>Blog - Emre Karadağ | Frontend Developer</title>
+                <meta name="description" content="Blog - Emre Karadağ | Frontend Developer" />
+            </Head>
             <div className='appPage'>
                 <strong className="sectionTitle mb-5">Blog</strong>
                 <div className="container mx-auto">

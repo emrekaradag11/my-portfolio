@@ -1,7 +1,6 @@
 import React from 'react'
 import Item from '../Blog/Item'
 import { useDispatch, useSelector } from 'react-redux';
-
 interface blogItem {
     id: string;
     title: string;
@@ -11,13 +10,13 @@ interface blogItem {
 }
 
 function Index() {
-
+    
     const blogList = useSelector((state: any) => (state.reducers.blogList ?? {}))
 
     return (
         <section id='blog'>
             <div className="container mx-auto">
-                <div className="flex flex-row">
+                <div className="flex flex-row w-9/12 mx-auto">
                     <div className="basis-1/3">
                         <strong className="sectionTitle">Blog</strong>
                     </div>

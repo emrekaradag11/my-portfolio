@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from 'react'
-import transated from '../../helpers/helper'
 import { useDispatch, useSelector } from 'react-redux';
 import Image from 'next/image'
+import useTranslation from 'next-translate/useTranslation'
 
 function Connect() {
     interface connectElems {
@@ -11,6 +11,7 @@ function Connect() {
         id: string;
     }
 
+    const { t, lang } = useTranslation('common')
     const connectElems = useSelector((state: any) => (state.reducers.connectElems ?? {}))
     
     useEffect(() => {
@@ -33,7 +34,7 @@ function Connect() {
 
     return (
         <section id='connectBoxWrapper'>
-            <strong className='sectionTitle mb-14'>{transated("connectWithMe")}</strong>
+            <strong className='sectionTitle mb-14'>{t("connectWithMe")}</strong>
             <section id='connectBox'>
                 {
                     connectElems.map((item:connectElems) => {

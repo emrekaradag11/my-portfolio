@@ -19,7 +19,7 @@ function Slider() {
   }, [])
 
   const Marquee = (speed: number) => {
-    
+
     const clone: any = marqueeRef.current?.innerHTML;
     const firstElement: any = marqueeRef.current?.children[0]!;
     let i = 0;
@@ -28,11 +28,11 @@ function Slider() {
 
     setInterval(function () {
       if (firstElement != null) {
-        firstElement.style.setProperty('margin-left',`-${i}px`);
-        
+        firstElement.style.setProperty('margin-left', `-${i}px`);
+
         if (i > firstElement.clientWidth)
           i = 0;
-        
+
         i = i + speed;
       }
     }, 0);

@@ -10,7 +10,7 @@ type Props = {
 function Item(props: Props) {
   return (
     <>
-        <div className='workItem'>
+        <div className='item'>
             <div className="left">
                 <strong className='title'>{props.title}</strong>
                 <p className='desc'>{props.desc}</p>

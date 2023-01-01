@@ -1,0 +1,15 @@
+{
+    "letsworktogether" : "Beraber çalışalım!",
+    "blog": "Blog" ,
+    "getLangName": "En" ,
+    "who_am_i": "Ben Kimim?" ,
+    "free_time": "Serbest Zaman" ,
+    "sleeping": "Uyuyorum" ,
+    "working": "Çalışıyorum" ,
+    "copyright": "Tüm hakları saklıdır." ,
+    "readmore": "Devamını Oku" ,
+    "buymecoffee":  "Buy Me a Coffee" ,
+    "connectWithMe": "Bağlantı Kur" ,
+    "skills": "Yetenekler" ,
+    "about_text": "Merhaba {{img}}, ben Emre. Türkiye'de front end geliştirici olarak görev yapıyorum. Yazılım geliştirme konusunda tutkuluyum. Diğer geliştiricilerle bağlantı kurmaya ve her zaman yeni arkadaşlar ve meslektaşlar edinmeye ilgi duyuyorum."
+}

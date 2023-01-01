@@ -1,6 +1,6 @@
 import React from 'react'
-import transated from '../../helpers/helper'
 import Link from 'next/link'
+import useTranslation from 'next-translate/useTranslation'
 
 interface Item {
   title: string,
@@ -11,6 +11,7 @@ interface Item {
 }
 
 function Item(props:Item) {
+  const { t, lang } = useTranslation('common')
   return (
     <article className={props.propClass}>
       <Link href={props.link} className="wrapper">
@@ -19,7 +20,7 @@ function Item(props:Item) {
             <strong className='title'>{props.title}</strong>
             <p className='desc'>{props.desc}</p>
             <div className="flex mt-4 items-center justify-between">
-                <div> <button className="btn siteBtn colored"> {transated('readmore')}</button> </div>
+                <div> <button className="btn siteBtn colored"> {t('readmore')}</button> </div>
                 <div> <div className="date">{props.date}</div> </div>
             </div>
         </div>

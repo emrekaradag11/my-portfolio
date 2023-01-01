@@ -1,11 +1,12 @@
 import React, { useEffect, useRef } from 'react'
-import transated from '../../helpers/helper'
 import Image from 'next/image'
 import moment from 'moment';
 import statusListJson from '../../shared/jsons/statusList.json'
+import useTranslation from 'next-translate/useTranslation'
 
 function About() {
 
+    const { t, lang } = useTranslation('common')
     const aboutTitleRef = useRef<HTMLDivElement>(null);
     let imgHoverRef = useRef<HTMLDivElement>(null);
 
@@ -37,23 +38,23 @@ function About() {
         free : {
             icon: "freeIcon.png",
             img: "freeImg.webp",
-            text: transated('free_time'),
+            text: t('free_time'),
         },
         sleep : {
             icon: "sleepingIcon.png",
             img: "sleepingImg.webp",
-            text: transated('sleeping'),
+            text: t('sleeping'),
         },
         work : {
             icon: "workingIcon.png",
             img: "workingImg.gif",
-            text: transated('working'),
+            text: t('working'),
         },
     }
 
     
     
-    const status = statusListJson[currentWeekDay].find(item => {
+    const status = statusListJson[currentWeekDay].find(item  => {
         const startTime = moment(item.startTime, format);
         const endTime = moment(item.endTime, format);
         return currentTime.isBetween(startTime, endTime)
@@ -61,7 +62,7 @@ function About() {
 
     useEffect(() => {
         window.addEventListener('scroll', handleTitleEffect);
-    })
+    },[])
 
     const handleHoverEffect = (e: any) => {
         if (null !== imgHoverRef.current) {
@@ -73,11 +74,11 @@ function About() {
     return (
         <section id='about'>
             <div className="inner">
-                <strong className='title sectionTitle' ref={aboutTitleRef}>{transated("who_am_i")}</strong>
+                <strong className='title sectionTitle' ref={aboutTitleRef}>{t("who_am_i")}</strong>
                 <div className="container mx-auto">
                     <div className='flex flex-row'>
                         <div className="mt-6 md:basis-7/12 basis-1/1 mx-auto text-center">
-                            <div className="siteText text-xl" dangerouslySetInnerHTML={{ __html: transated('about_text').replace('{{img}}', `<img width='30' class="inline-block align-middle" src="/images/waving-hand.svg" alt="" />`) }}></div>
+                            <div className="siteText text-xl" dangerouslySetInnerHTML={{ __html: t('about_text').replace('{{img}}', `<img width='30' class="inline-block align-middle" src="/images/waving-hand.svg" alt="" />`) }}></div>
                             <div className="myStatus" onMouseMove={(e) => handleHoverEffect(e)} id='myStatus'>
                                 <div className="imgHover" ref={imgHoverRef} id='imgHover'>
                                     <Image

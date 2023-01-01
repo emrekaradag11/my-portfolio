@@ -2,14 +2,12 @@ import { createSlice } from "@reduxjs/toolkit";
 
 
 interface stateInterfaces {
-    language: number,
     blogList: object,
     connectElems: object,
-    workList: object,
+    skillList: object,
 }
 
 const initialState: stateInterfaces = {
-    language: 1,
     blogList: [
         {
             "title": "Lorem Title",
@@ -66,7 +64,7 @@ const initialState: stateInterfaces = {
             'url': 'https://twitter.com/emrekradag',
         },
     ],
-    workList : [
+    skillList : [
         {
             'id' : '1',
             'title': 'UI/UX Designer',
@@ -91,7 +89,7 @@ const states = createSlice({
     initialState,
     reducers: {
         changeLang: (state, action) => {
-            state.language = action.payload;
+            //state.language = action.payload;
             //window.location.reload()
         }, 
     }
