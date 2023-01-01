@@ -28,33 +28,33 @@ function About() {
     
     */
 
-    
+
     const format = 'HH:mm:ss'
     const currentDate = moment()
     const currentWeekDay = currentDate.format('dddd').toLocaleLowerCase()
     const currentTime = moment(currentDate.format(format), format);
 
-    const iconList : any = {
-        free : {
+    const iconList: any = {
+        free: {
             icon: "freeIcon.png",
             img: "freeImg.webp",
             text: t('free_time'),
         },
-        sleep : {
+        sleep: {
             icon: "sleepingIcon.png",
             img: "sleepingImg.webp",
             text: t('sleeping'),
         },
-        work : {
+        work: {
             icon: "workingIcon.png",
             img: "workingImg.gif",
             text: t('working'),
         },
     }
 
-    
-    
-    const status = statusListJson[currentWeekDay].find(item  => {
+
+
+    const status: any = statusListJson[currentWeekDay as keyof typeof statusListJson].find((item: any) => {
         const startTime = moment(item.startTime, format);
         const endTime = moment(item.endTime, format);
         return currentTime.isBetween(startTime, endTime)
@@ -62,7 +62,7 @@ function About() {
 
     useEffect(() => {
         window.addEventListener('scroll', handleTitleEffect);
-    },[])
+    }, [])
 
     const handleHoverEffect = (e: any) => {
         if (null !== imgHoverRef.current) {
