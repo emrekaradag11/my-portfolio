@@ -1,0 +1,17 @@
+{
+    "free": {
+        "icon": "freeIcon.png",
+        "img": "freeImg.webp",
+        "text": "free_time"
+    },
+    "sleep": {
+        "icon": "sleepingIcon.png",
+        "img": "sleepingImg.webp",
+        "text": "sleeping"
+    },
+    "work": {
+        "icon": "workingIcon.png",
+        "img": "workingImg.gif",
+        "text": "working"
+    }
+}

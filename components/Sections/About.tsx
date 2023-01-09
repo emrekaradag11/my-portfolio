@@ -2,6 +2,7 @@ import React, { useEffect, useRef } from 'react'
 import Image from 'next/image'
 import moment from 'moment';
 import statusListJson from '../../shared/jsons/statusList.json'
+import iconList from '../../shared/jsons/iconList.json'
 import useTranslation from 'next-translate/useTranslation'
 
 function About() {
@@ -28,33 +29,12 @@ function About() {
     
     */
 
-
     const format = 'HH:mm:ss'
     const currentDate = moment()
     const currentWeekDay = currentDate.format('dddd').toLocaleLowerCase()
     const currentTime = moment(currentDate.format(format), format);
-
-    const iconList: any = {
-        free: {
-            icon: "freeIcon.png",
-            img: "freeImg.webp",
-            text: t('free_time'),
-        },
-        sleep: {
-            icon: "sleepingIcon.png",
-            img: "sleepingImg.webp",
-            text: t('sleeping'),
-        },
-        work: {
-            icon: "workingIcon.png",
-            img: "workingImg.gif",
-            text: t('working'),
-        },
-    }
-
-
-
-    const status: any = statusListJson[currentWeekDay as keyof typeof statusListJson].find((item: any) => {
+    
+    const status : any = statusListJson[currentWeekDay as keyof typeof statusListJson].find((item: any) => {
         const startTime = moment(item.startTime, format);
         const endTime = moment(item.endTime, format);
         return currentTime.isBetween(startTime, endTime)
@@ -82,7 +62,7 @@ function About() {
                             <div className="myStatus" onMouseMove={(e) => handleHoverEffect(e)} id='myStatus'>
                                 <div className="imgHover" ref={imgHoverRef} id='imgHover'>
                                     <Image
-                                        src={"/images/status/" + iconList[status.type].img}
+                                        src={"/images/status/" + iconList[status.type  as keyof typeof iconList].img}
                                         alt='HoverImage'
                                         className="block"
                                         width={376}
@@ -94,14 +74,14 @@ function About() {
                                 <div className="status">
                                     <span className="icon inline-block align-middle mr-2">
                                         <Image
-                                            src={"/images/status/" + iconList[status.type].icon}
-                                            alt={iconList[status.type].text ?? 'image'}
+                                            src={"/images/status/" + iconList[status.type  as keyof typeof iconList].icon}
+                                            alt={iconList[status.type  as keyof typeof iconList].text ?? 'image'}
                                             width={32}
                                             height={32}
                                             className="block"
                                         />
                                     </span>
-                                    {iconList[status.type].text}
+                                    {t(iconList[status.type  as keyof typeof iconList].text)}
                                 </div>
                             </div>
                         </div>

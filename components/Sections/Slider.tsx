@@ -1,12 +1,13 @@
 import React, { useEffect, useRef } from 'react'
-import Lottie from 'react-lottie-player'
 import Image from 'next/image'
-import LottieJson from '../../public/lottie.json'
+import useTranslation from 'next-translate/useTranslation'
 
 function Slider() {
+  const { t, lang } = useTranslation('common')
 
   const sliderCenterRef = useRef<HTMLDivElement>(null);
   const marqueeRef = useRef<HTMLDivElement>(null);
+  const titleRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     Marquee(0.5)
@@ -16,6 +17,7 @@ function Slider() {
     setTimeout(() => {
       sliderCenterRef.current?.classList.add('loaded')
     }, 100);
+    SliderText()
   }, [])
 
   const Marquee = (speed: number) => {
@@ -39,34 +41,58 @@ function Slider() {
 
   }
 
+  const SliderText = () => {
+    const title = titleRef.current
+    title?.querySelectorAll('.word').forEach(item => {
+      const innerElement = item.querySelector('.wordInner') as HTMLElement
+      const newElemCounter = innerElement.querySelector('span') as HTMLElement
+      if(!newElemCounter){
+        const html = innerElement?.innerHTML
+        let newElem = '';
+        let delay = 0;
+        html?.split('').forEach(item => {
+          delay++
+          newElem += `<span style="animation-delay:${delay / 20}s">${item}</span>`;
+        })
+        innerElement.innerHTML = newElem;
+      }
+      
+    })
+  }
+
   const skilList: any = ['Html', 'Php', 'Css', 'S(a|c)ss', 'Mysql', 'Node.js', 'Javascript', 'React.js', 'Git', 'Express.js']
 
   return (
     <section id='slider'>
       <div className="sliderInner flex flex-col content-between">
         <div className="sliderCenter" ref={sliderCenterRef} id='sliderCenter'>
-          <div className="flex justify-between items-center">
-            <div>
-              <h1 className='title'>
+          <div className="flex justify-center h-full items-center">
+            <div className='relative'>
+              <h1 className='title' ref={titleRef}>
                 <div className="word">
-                  <div className="wordInner">Frontend</div>
+                  <div className="wordInner">{t('frontend')}</div>
                 </div>
                 <div className="word">
-                  <div className="wordInner">Software</div>
+                  <div className="wordInner align-middle">{t('software')}</div>
+                  <button className="siteBtn btnLg colored align-middle "> 
+                    <Image
+                      src={"/images/letter-l.png"}
+                      alt={t("discover")}
+                      width={35}
+                      height={35}
+                      className="mr-2 rotate-180"
+                  />
+                  {t("discover")}! </button>
                 </div>
                 <div className="word">
-                  <div className="wordInner">Developer</div>
+                  <div className="wordInner">{t('developer')}</div>
                 </div>
               </h1>
-            </div>
-            <div>
-              <Lottie
-                play
-                loop
-                animationData={LottieJson}
-                style={{ height: '700px', width: '700px' }}
-              >
-              </Lottie>
+              <div className="img">
+                <video autoPlay loop>
+                  <source src="./introduction.mp4" type="video/mp4" />
+                </video>
+              </div>
             </div>
           </div>
 
