@@ -1,6 +1,7 @@
 import React, { useEffect, useRef } from 'react'
 import Image from 'next/image'
 import useTranslation from 'next-translate/useTranslation'
+import Tilt from 'react-parallax-tilt';
 
 function Slider() {
   const { t, lang } = useTranslation('common')
@@ -16,6 +17,9 @@ function Slider() {
   useEffect(() => {
     setTimeout(() => {
       sliderCenterRef.current?.classList.add('loaded')
+      setTimeout(() => {
+        sliderCenterRef.current?.classList.add('loadedEnd')
+      }, 2000);
     }, 100);
     SliderText()
   }, [])
@@ -46,7 +50,7 @@ function Slider() {
     title?.querySelectorAll('.word').forEach(item => {
       const innerElement = item.querySelector('.wordInner') as HTMLElement
       const newElemCounter = innerElement.querySelector('span') as HTMLElement
-      if(!newElemCounter){
+      if (!newElemCounter) {
         const html = innerElement?.innerHTML
         let newElem = '';
         let delay = 0;
@@ -56,11 +60,14 @@ function Slider() {
         })
         innerElement.innerHTML = newElem;
       }
-      
+
     })
   }
 
-  const skilList: any = ['Html', 'Php', 'Css', 'S(a|c)ss', 'Mysql', 'Node.js', 'Javascript', 'React.js', 'Git', 'Express.js']
+  const skilList: any = ['Html', 'Php', 'Css', 'S(a|c)ss', 'Pixel Perfect', 'Mysql', 'Node.js', 'Javascript', 'React.js', 'Git', 'Express.js']
+
+
+
 
   return (
     <section id='slider'>
@@ -74,24 +81,26 @@ function Slider() {
                 </div>
                 <div className="word">
                   <div className="wordInner align-middle">{t('software')}</div>
-                  <button className="siteBtn btnLg colored align-middle "> 
+                  <button className="siteBtn btnLg colored align-middle ">
                     <Image
                       src={"/images/letter-l.png"}
                       alt={t("discover")}
                       width={35}
                       height={35}
                       className="mr-2 rotate-180"
-                  />
-                  {t("discover")}! </button>
+                    />
+                    {t("discover")}! </button>
                 </div>
                 <div className="word">
                   <div className="wordInner">{t('developer')}</div>
                 </div>
               </h1>
               <div className="img">
-                <video autoPlay loop>
-                  <source src="./introduction.mp4" type="video/mp4" />
-                </video>
+                <Tilt className='h-full' trackOnWindow={true} tiltReverse={true} transitionSpeed={10000} >
+                  <video autoPlay loop>
+                    <source src="./introduction.mp4" type="video/mp4" />
+                  </video>
+                </Tilt>
               </div>
             </div>
           </div>
