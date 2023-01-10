@@ -662,56 +662,122 @@ header {
     .sectionTitle {
         position: sticky;
         top: 140px;
+        text-align: start;
     }
 }
 .blogList {
     article {
-        position: sticky;
         top: 140px;
         margin: 20px 0;
+        padding: 15px;
+        border:1px solid black;
+        border-radius: $siteRadius;
+        box-shadow: 3px 3px 0px 0 $themeColor;
+        background-color: #fffacd;
+        &:hover{
+            .text{
+                .title{
+                    background-size: 100% 5%;
+                }
+            }
+        }
         .wrapper {
-            overflow: hidden;
             border-radius: $siteRadius;
-            background-color: $themeColor;
             position: relative;
-            display: block;
+            align-items: center;
         }
         .img {
             transition: all 0.3s ease;
             display: block;
-            margin: 20px;
             border-radius: $siteRadius;
-            position: relative;
-            overflow: hidden;
-            padding-bottom: 50%;
-            img {
-                display: block;
-                position: absolute;
-                inset: 0;
-                object-fit: cover;
-                object-position: center center;
-                width: 100%;
-                height: 100%;
+            box-shadow: 4px 4px 0px 0px $themeColor;
+            .inner{
+                position: relative;
+                overflow: hidden;
+                padding-bottom: 140%;
+                border-radius: $siteRadius;
+                img {
+                    display: block;
+                    position: absolute;
+                    inset: 0;
+                    object-fit: cover;
+                    object-position: center center;
+                    width: 100%;
+                    height: 100%;
+                }
             }
         }
         .text {
             display: block;
-            padding: 0 20px 20px 20px;
-            color: white;
+            padding: 20px;
+            .labels{
+                margin: 0 0 30px 0;
+                display: flex;
+                align-items: center;
+                justify-content: flex-start;
+                font-size: 0.9rem;
+                .category{
+                    display: inline-block;
+                    background-color: #1dd7c2;
+                    padding: 6px 15px;
+                    font-size: .8rem;
+                    color: white;
+                    border-radius: 20px;
+                    border: 1px solid rgba(39,39,39,0.75);
+                    box-shadow: 2px 2px 0px 0px $themeColor;
+                    svg{
+                        stroke: rgba(0,0,0,0.4);
+                        fill: #fff;
+                        width: 11px;
+                        display: inline-block;
+                        vertical-align: middle;
+                        margin: 0 5px 0 0;
+                    }
+                }
+                .date {
+                    display: block;
+                    margin: 0 20px;
+                }
+                .read{
+                    &:before{
+                        content: '';
+                        display: inline-block;
+                        width: 5px;
+                        height: 5px;
+                        background: #1dd7c2;
+                        vertical-align: middle;
+                        margin-right: 15px;
+                        border-radius: 100%;
+                        margin-top: -2px;
+                    }
+                }
+            }
             .title {
-                display: block;
+                display: inline;
                 font-size: 2rem;
+                background-image: linear-gradient(to right,#333 0%,#333 100%);
+                background-size: 0% 5%;
+                background-repeat: no-repeat;
+                background-position: left 90%;
+                transition: all 400ms ease;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                line-clamp: 2;
+                box-orient: vertical;
+                -webkit-line-clamp: 2;
+                -webkit-box-orient: vertical;
             }
             .desc {
                 display: block;
-                margin: 0;
+                margin: 20px 0 30px 0;
                 font-size: 1rem;
-            }
-            .date {
-                display: block;
-                font-size: 0.9rem;
-                margin: 6px 0 0 0;
-                text-align: end;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                display: -webkit-box;
+                line-clamp: 3;
+                box-orient: vertical;
+                -webkit-line-clamp: 3;
+                -webkit-box-orient: vertical;
             }
         }
     }

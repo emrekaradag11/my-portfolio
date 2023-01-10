@@ -29,10 +29,10 @@ export default function Blog() {
                             return <Item
                                 key={item.id}
                                 title={item.title}
-                                propClass=''
                                 desc={item.desc}
                                 date={item.date}
                                 link={item.slug}
+                                propClass={''}
                             />
                         })}
                     </div>

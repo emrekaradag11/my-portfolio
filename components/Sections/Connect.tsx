@@ -1,35 +1,30 @@
-import React, { useEffect, useRef } from 'react'
-import { useDispatch, useSelector } from 'react-redux';
+import React, { useEffect } from 'react'
 import Image from 'next/image'
 import useTranslation from 'next-translate/useTranslation'
+import links from '../../shared/jsons/links.json'
 
 function Connect() {
-    interface connectElems {
-        img: string;
-        title: string;
-        url: string;
-        id: string;
-    }
+
 
     const { t, lang } = useTranslation('common')
-    const connectElems = useSelector((state: any) => (state.reducers.connectElems ?? {}))
-    
+    const connectElems: any = links
+
     useEffect(() => {
         window.addEventListener('scroll', handleScroll);
     });
-    
+
     const handleScroll = () => {
         const boxes = document.getElementsByClassName('box')!;
         if (boxes != null) {
             for (let s = 0; s < boxes.length; s++) {
                 let elemInner: any = boxes[s].getElementsByClassName('boxInner')[0];
                 if (s % 2 === 0) {
-                    elemInner.style.setProperty('transform',`translateX(-${window.scrollY / 5}px)`);
+                    elemInner.style.setProperty('transform', `translateX(-${window.scrollY / 5}px)`);
                 } else {
-                    elemInner.style.setProperty('transform',`translateX(${window.scrollY / 5}px)`);
+                    elemInner.style.setProperty('transform', `translateX(${window.scrollY / 5}px)`);
                 }
             }
-        } 
+        }
     };
 
     return (
@@ -37,7 +32,7 @@ function Connect() {
             <strong className='sectionTitle mb-14'>{t("connectWithMe")}</strong>
             <section id='connectBox'>
                 {
-                    connectElems.map((item:connectElems) => {
+                    connectElems.map((item: any) => {
                         return (
                             <a key={item.id} href={item.url} target='_blank' title={item.title} rel="nofollow noreferrer" className="box">
                                 <div className="boxInner">

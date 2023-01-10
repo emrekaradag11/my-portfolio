@@ -1,0 +1,26 @@
+[
+    {
+        "id" : "1",
+        "title": "Github",
+        "img": "/images/githubWp.png",
+        "url": "https://github.com/emrekaradag11"
+    },
+    {
+        "id" : "2",
+        "title": "Linked-in",
+        "img": "/images/linkedinWp.jpg",
+        "url": "https://www.linkedin.com/in/emrekaradag/"
+    },
+    {
+        "id" : "3",
+        "title": "Instagram",
+        "img": "/images/instagramWp.jpg",
+        "url": "https://www.instagram.com/emree_karadag/"
+    },
+    {
+        "id" : "4",
+        "title": "Twitter",
+        "img": "/images/twitterWp.jpg",
+        "url": "https://twitter.com/emrekradag"
+    }
+]

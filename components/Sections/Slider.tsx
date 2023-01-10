@@ -9,6 +9,19 @@ function Slider() {
   const sliderCenterRef = useRef<HTMLDivElement>(null);
   const marqueeRef = useRef<HTMLDivElement>(null);
   const titleRef = useRef<HTMLDivElement>(null);
+  
+  const handleClick = () => { 
+    let i = 0;
+    setInterval(() => {
+      i++
+      if(i <= 1000){
+        window.scrollTo({
+          top: i,
+          behavior: 'smooth',
+        });
+      }
+    },1)
+  };
 
   useEffect(() => {
     Marquee(0.5)
@@ -81,7 +94,7 @@ function Slider() {
                 </div>
                 <div className="word">
                   <div className="wordInner align-middle">{t('software')}</div>
-                  <button className="siteBtn btnLg colored align-middle ">
+                  <button onClick={handleClick} className="siteBtn btnLg colored align-middle ">
                     <Image
                       src={"/images/letter-l.png"}
                       alt={t("discover")}

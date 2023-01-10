@@ -1,40 +1,39 @@
-import React, { useEffect, useRef } from 'react'
-import { useSelector } from 'react-redux';
+import React, { useEffect } from 'react'
 import Item from '../Skills/Item';
 import useTranslation from 'next-translate/useTranslation'
+import skilList from '../../shared/jsons/skillList.json'
 
-interface item {
-  title : string
-  titleSm : string
-  desc : string
-  id : number
-}
 
 function Skills() {
 
   const { t, lang } = useTranslation('common')
-  const skillList = useSelector((state: any) => (state.reducers.skillList ?? {}))
-  
+
 
   useEffect(() => {
-      window.addEventListener('scroll', handleScroll);
+    window.addEventListener('scroll', handleScroll);
   });
 
   const handleScroll = () => {
-      const items = document.getElementsByClassName('skillItem')!;
-      const heights = document.getElementById('about')!.offsetHeight + document.getElementById('slider')!.offsetHeight - 200
-      
-      if (items != null) {
-          for (let s = 0; s < items.length; s++) {
-              const item: any = items[s] 
-              let translated = ((heights - window.scrollY) / 4) + (s * 50)
-              
-              if(translated <= 0)
-                translated = 0;
+    const items = document.getElementsByClassName('skillItem')!;
+    const about = document.getElementById('about')!;
+    const slider = document.getElementById('slider')!;
+    let heights = 0;
+    if (about && slider) {
+      heights = about!.offsetHeight + slider!.offsetHeight - 200
+    }
 
-              item.style.setProperty('transform',`translateX(${translated}px)`);
-          }
-      } 
+
+    if (items != null) {
+      for (let s = 0; s < items.length; s++) {
+        const item: any = items[s]
+        let translated = ((heights - window.scrollY) / 4) + (s * 50)
+
+        if (translated <= 0)
+          translated = 0;
+
+        item.style.setProperty('transform', `translateX(${translated}px)`);
+      }
+    }
   };
 
 
@@ -44,7 +43,7 @@ function Skills() {
       <div className="skillList mt-6">
         <div className="container mx-auto">
           <div className='w-2/3 mx-auto'>
-            {skillList.map((item: item) => {
+            {skilList.map((item) => {
               return <Item key={item.id} title={item.title} id={item.id} desc={item.desc} titleSm={item.titleSm} />
             })}
           </div>

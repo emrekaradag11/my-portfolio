@@ -16,7 +16,7 @@ function Index() {
     return (
         <section id='blog'>
             <div className="container mx-auto">
-                <div className="flex flex-row w-9/12 mx-auto">
+                <div className="flex flex-row w-10/12 mx-auto">
                     <div className="basis-1/3">
                         <strong className="sectionTitle">Blog</strong>
                     </div>
