@@ -7,6 +7,14 @@ $themeColor2: #ffdd00;
 $siteRadius: 20px;
 @import url("https://fonts.googleapis.com/css2?family=Sono:wght@200;300;400;500;600;700;800&display=swap");
 
+$customColor1 : #fffacd;
+$customColor2 : #54CBCA;
+$customColor3 : #83ea6c;
+$customColor4 : #ffcf00;
+$customColor5 : #C5C5FE;
+$customColor6 : #85b2f4;
+$customColor7 : #ffaeab;
+
 /* normalize css */
 html {
     line-height: 1.15;
@@ -157,12 +165,6 @@ template {
     display: none;
 }
 
-.h1,
-.h2,
-.h3,
-.h4,
-.h5,
-.h6,
 h1,
 h2,
 h3,
@@ -175,35 +177,30 @@ h6 {
     line-height: 1.2;
 }
 
-.h1,
 h1 {
     font-size: calc(1.375rem + 1.5vw);
 }
 
-.h2,
 h2 {
     font-size: calc(1.325rem + 0.9vw);
 }
 
-.h3,
 h3 {
     font-size: calc(1.3rem + 0.6vw);
 }
 
-.h4,
 h4 {
     font-size: calc(1.275rem + 0.3vw);
 }
 
-.h5,
 h5 {
     font-size: 1.25rem;
 }
 
-.h6,
 h6 {
     font-size: 1rem;
 }
+
 p {
     margin-bottom: 1em;
 }
@@ -231,6 +228,12 @@ p {
         display: block;
         line-height: 1;
         text-align: center;
+    }
+    .sectionTitleXs {
+        font-size: 1.5rem;
+        display: block;
+        line-height: 1;
+        margin-bottom: 10px;
     }
     #loader {
         position: fixed;
@@ -609,7 +612,7 @@ header {
         display: flex;
         justify-content: flex-start;
         position: relative;
-        &:before{
+        &:before {
             content: "";
             position: absolute;
             border-bottom: 1px solid black;
@@ -624,7 +627,7 @@ header {
                 font-size: 1rem;
                 height: 36px;
                 width: 50px;
-                border:1px solid black;
+                border: 1px solid black;
                 border-radius: 50px;
                 text-align: center;
                 line-height: 36px;
@@ -670,13 +673,13 @@ header {
         top: 140px;
         margin: 20px 0;
         padding: 15px;
-        border:1px solid black;
+        border: 1px solid black;
         border-radius: $siteRadius;
         box-shadow: 3px 3px 0px 0 $themeColor;
         background-color: #fffacd;
-        &:hover{
-            .text{
-                .title{
+        &:hover {
+            .text {
+                .title {
                     background-size: 100% 5%;
                 }
             }
@@ -691,7 +694,7 @@ header {
             display: block;
             border-radius: $siteRadius;
             box-shadow: 4px 4px 0px 0px $themeColor;
-            .inner{
+            .inner {
                 position: relative;
                 overflow: hidden;
                 padding-bottom: 140%;
@@ -710,23 +713,23 @@ header {
         .text {
             display: block;
             padding: 20px;
-            .labels{
+            .labels {
                 margin: 0 0 30px 0;
                 display: flex;
                 align-items: center;
                 justify-content: flex-start;
                 font-size: 0.9rem;
-                .category{
+                .category {
                     display: inline-block;
                     background-color: #1dd7c2;
                     padding: 6px 15px;
-                    font-size: .8rem;
+                    font-size: 0.8rem;
                     color: white;
                     border-radius: 20px;
-                    border: 1px solid rgba(39,39,39,0.75);
+                    border: 1px solid rgba(39, 39, 39, 0.75);
                     box-shadow: 2px 2px 0px 0px $themeColor;
-                    svg{
-                        stroke: rgba(0,0,0,0.4);
+                    svg {
+                        stroke: rgba(0, 0, 0, 0.4);
                         fill: #fff;
                         width: 11px;
                         display: inline-block;
@@ -738,9 +741,9 @@ header {
                     display: block;
                     margin: 0 20px;
                 }
-                .read{
-                    &:before{
-                        content: '';
+                .read {
+                    &:before {
+                        content: "";
                         display: inline-block;
                         width: 5px;
                         height: 5px;
@@ -755,7 +758,7 @@ header {
             .title {
                 display: inline;
                 font-size: 2rem;
-                background-image: linear-gradient(to right,#333 0%,#333 100%);
+                background-image: linear-gradient(to right, #333 0%, #333 100%);
                 background-size: 0% 5%;
                 background-repeat: no-repeat;
                 background-position: left 90%;
@@ -879,13 +882,70 @@ footer {
 }
 
 .blogDetail {
+    .sectionTitleSm{
+        background-color: rgb(255, 255, 255);
+        border: 1px solid rgba(39, 39, 39, 0.75);
+        border-radius: 20px;
+        padding: 1rem;
+    }
+    .wrapContent {
+        background-color: rgb(255, 250, 205);
+        border: 1px solid rgba(39, 39, 39, 0.75);
+        border-radius: $siteRadius;
+        padding: 2rem;
+    }
+    .blogRight{
+        position: sticky;
+        top: 120px;
+    }
+    .labels {
+        margin: 0 0 30px 0;
+        display: flex;
+        font-size: 0.9rem;
+        .category {
+            display: inline-block;
+            background-color: #1dd7c2;
+            padding: 6px 15px;
+            font-size: 0.8rem;
+            color: white;
+            border-radius: 20px;
+            border: 1px solid rgba(39, 39, 39, 0.75);
+            box-shadow: 2px 2px 0px 0px $themeColor;
+            svg {
+                stroke: rgba(0, 0, 0, 0.4);
+                fill: #fff;
+                width: 11px;
+                display: inline-block;
+                vertical-align: middle;
+                margin: 0 5px 0 0;
+            }
+        }
+        .date {
+            display: block;
+            margin: 0 20px;
+        }
+        .read {
+            &:before {
+                content: "";
+                display: inline-block;
+                width: 5px;
+                height: 5px;
+                background: #1dd7c2;
+                vertical-align: middle;
+                margin-right: 15px;
+                border-radius: 100%;
+                margin-top: -2px;
+            }
+        }
+    }
     .img {
         display: block;
         border-radius: $siteRadius;
         position: relative;
         overflow: hidden;
         padding-bottom: 50%;
-        box-shadow: 0 0 20px 2px rgba(0, 8, 20, 0.1);
+        box-shadow: 4px 4px 0px 0px #212529;
+        margin-bottom: 30px;
         img {
             display: block;
             position: absolute;
@@ -896,9 +956,31 @@ footer {
             height: 100%;
         }
     }
-    .desc {
+    .siteDesc {
         font-size: 0.9rem;
         margin: 40px 0 0 0;
+    }
+    .labelList{
+        .label{
+            display: inline-block;
+            background-color: #1dd7c2;
+            padding: 6px 15px;
+            margin-right: 10px;
+            margin-bottom: 10px;
+            font-size: 0.8rem;
+            color: white;
+            border-radius: 20px;
+            border: 1px solid rgba(39, 39, 39, 0.75);
+            box-shadow: 2px 2px 0px 0px $themeColor;
+            svg {
+                stroke: rgba(0, 0, 0, 0.4);
+                fill: #fff;
+                width: 11px;
+                display: inline-block;
+                vertical-align: middle;
+                margin: 0 5px 0 0;
+            }
+        }
     }
 }
 

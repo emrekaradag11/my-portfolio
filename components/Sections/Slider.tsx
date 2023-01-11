@@ -79,9 +79,6 @@ function Slider() {
 
   const skilList: any = ['Html', 'Php', 'Css', 'S(a|c)ss', 'Pixel Perfect', 'Mysql', 'Node.js', 'Javascript', 'React.js', 'Git', 'Express.js']
 
-
-
-
   return (
     <section id='slider'>
       <div className="sliderInner flex flex-col content-between">
@@ -97,12 +94,12 @@ function Slider() {
                   <button onClick={handleClick} className="siteBtn btnLg colored align-middle ">
                     <Image
                       src={"/images/letter-l.png"}
-                      alt={t("discover")}
+                      alt={t("who_am_i")}
                       width={35}
                       height={35}
                       className="mr-2 rotate-180"
                     />
-                    {t("discover")}! </button>
+                    {t("who_am_i")}</button>
                 </div>
                 <div className="word">
                   <div className="wordInner">{t('developer')}</div>
