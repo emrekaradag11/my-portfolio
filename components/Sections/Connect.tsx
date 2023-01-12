@@ -18,7 +18,7 @@ function Connect() {
         if (boxes != null) {
             for (let s = 0; s < boxes.length; s++) {
                 let elemInner: any = boxes[s].getElementsByClassName('boxInner')[0];
-                if (s % 2 === 0) {
+                if (s % 2 === 1) {
                     elemInner.style.setProperty('transform', `translateX(-${window.scrollY / 5}px)`);
                 } else {
                     elemInner.style.setProperty('transform', `translateX(${window.scrollY / 5}px)`);

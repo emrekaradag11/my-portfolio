@@ -15,5 +15,10 @@
     "software": "Software",
     "developer": "Developer",
     "discover": "Discover",
+    "comments": "Comments",
+    "populartags": "Popular Tags",
+    "dailytips": "Daily Tips",
+    "share": "Share",
+    "send": "Send",
     "about_text": "Hi {{img}}, my name is Emre. I am a front end developer in Turkey. I'm passionate about software development. I love to network with other people and always looking for new friends or collegues."
 }

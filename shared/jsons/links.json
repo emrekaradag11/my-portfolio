@@ -22,5 +22,11 @@
         "title": "Twitter",
         "img": "/images/twitterWp.jpg",
         "url": "https://twitter.com/emrekradag"
+    },
+    {
+        "id" : "5",
+        "title": "Dev.to",
+        "img": "/images/devWp.jpg",
+        "url": "https://dev.to/emrekaradag11"
     }
 ]

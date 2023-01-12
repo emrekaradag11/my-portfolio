@@ -7,13 +7,15 @@ $themeColor2: #ffdd00;
 $siteRadius: 20px;
 @import url("https://fonts.googleapis.com/css2?family=Sono:wght@200;300;400;500;600;700;800&display=swap");
 
-$customColor1 : #fffacd;
-$customColor2 : #54CBCA;
-$customColor3 : #83ea6c;
-$customColor4 : #ffcf00;
-$customColor5 : #C5C5FE;
-$customColor6 : #85b2f4;
-$customColor7 : #ffaeab;
+$customColor1: rgba(255, 250, 205, 0.25);
+$customColor2: rgba(215, 242, 241, 1);
+$customColor3: rgba(131, 234, 108, 0.25);
+$customColor4: rgba(255, 243, 205, 1);
+$customColor5: rgba(197, 197, 254, 0.25);
+$customColor6: rgba(133, 178, 244, 0.25);
+$customColor7: rgba(255, 174, 171, 0.25);
+
+$customBorderColor : rgba(39, 39, 39, 0.75);
 
 /* normalize css */
 html {
@@ -208,6 +210,36 @@ p {
 /* normalize ended */
 
 /* custom css */
+.bg-custom1 {
+    background-color: $customColor1 !important;
+}
+.bg-custom2 {
+    background-color: $customColor2 !important;
+}
+.bg-custom3 {
+    background-color: $customColor3 !important;
+}
+.bg-custom4 {
+    background-color: $customColor4 !important;
+}
+.bg-custom5 {
+    background-color: $customColor5 !important;
+}
+.bg-custom6 {
+    background-color: $customColor6 !important;
+}
+.bg-custom7 {
+    background-color: $customColor7 !important;
+}
+
+.form-control {
+    border: 1px solid $customBorderColor;
+    border-radius: $siteRadius / 2;
+    background: white;
+    width: 100%;
+    min-height: 45px;
+    padding: 11px 15px;
+}
 
 .App {
     padding: 30px;
@@ -233,7 +265,7 @@ p {
         font-size: 1.5rem;
         display: block;
         line-height: 1;
-        margin-bottom: 10px;
+        margin-bottom: 30px;
     }
     #loader {
         position: fixed;
@@ -332,6 +364,8 @@ header {
     img {
         display: inline-block;
         vertical-align: middle;
+        user-select: none;
+        pointer-events: none;
     }
     &:is(.colored) {
         background-color: $themeColor2;
@@ -726,7 +760,7 @@ header {
                     font-size: 0.8rem;
                     color: white;
                     border-radius: 20px;
-                    border: 1px solid rgba(39, 39, 39, 0.75);
+                    border: 1px solid $customBorderColor;
                     box-shadow: 2px 2px 0px 0px $themeColor;
                     svg {
                         stroke: rgba(0, 0, 0, 0.4);
@@ -819,7 +853,7 @@ footer {
         overflow: hidden;
         display: block;
         transition: all 0.1s ease;
-        &:nth-child(odd) {
+        &:nth-child(even) {
             //background-color: $themeColor;
             //color: white;
             .boxInner {
@@ -832,6 +866,15 @@ footer {
                 }
             }
         }
+        &:nth-child(3n) {
+            //background-color: $themeColor;
+            //color: white;
+            .boxInner {
+                .img {
+                    width: 170px;
+                }
+            }
+        }
         &:hover {
             background-color: $themeColor2;
             color: $themeColor;
@@ -839,7 +882,7 @@ footer {
                 animation: translateX 9s infinite linear;
             }
 
-            &:nth-child(odd) {
+            &:nth-child(even) {
                 .boxInner {
                     animation: translateXReverse 9s infinite linear;
                 }
@@ -850,6 +893,9 @@ footer {
             width: -webkit-max-content;
             float: right;
             align-items: center;
+            > div {
+                white-space: nowrap;
+            }
             .title {
                 display: inline-block;
                 word-break: keep-all;
@@ -882,19 +928,19 @@ footer {
 }
 
 .blogDetail {
-    .sectionTitleSm{
+    .sectionTitleSm {
         background-color: rgb(255, 255, 255);
-        border: 1px solid rgba(39, 39, 39, 0.75);
+        border: 1px solid $customBorderColor;
         border-radius: 20px;
         padding: 1rem;
     }
     .wrapContent {
         background-color: rgb(255, 250, 205);
-        border: 1px solid rgba(39, 39, 39, 0.75);
+        border: 1px solid $customBorderColor;
         border-radius: $siteRadius;
         padding: 2rem;
     }
-    .blogRight{
+    .blogRight {
         position: sticky;
         top: 120px;
     }
@@ -909,7 +955,7 @@ footer {
             font-size: 0.8rem;
             color: white;
             border-radius: 20px;
-            border: 1px solid rgba(39, 39, 39, 0.75);
+            border: 1px solid $customBorderColor;
             box-shadow: 2px 2px 0px 0px $themeColor;
             svg {
                 stroke: rgba(0, 0, 0, 0.4);
@@ -938,13 +984,72 @@ footer {
             }
         }
     }
+    .customList {
+        .listItem {
+            display: block;
+            padding: 10px 0;
+            + .listItem {
+                border-top: 1px solid $customBorderColor;
+            }
+            .listLink {
+                display: flex;
+                align-items: center;
+                justify-content: flex-start;
+                font-size: 0.9rem;
+                &:hover {
+                    .number {
+                        transform: translate(-5px, -5px);
+                    }
+                }
+                .number {
+                    background-image: url("/images/number-decoration.svg");
+                    background-position: center center;
+                    display: inline-block;
+                    background-size: contain;
+                    width: 30px;
+                    height: 30px;
+                    text-align: center;
+                    line-height: 30px;
+                    margin: 0 6px 0 0;
+                    transition: all 0.3s ease;
+                }
+                .text {
+                    width: calc(100% - 36px);
+                }
+            }
+        }
+    }
+    .shareIconList {
+        .shareButton {
+            display: inline-block;
+            .shareButtonLink {
+                display: block;
+                border: 1px solid $customBorderColor !important;
+                overflow: hidden;
+                border-radius: 50%;
+                box-shadow: 2px 2px 0px 0px $themeColor;
+                transition: all .2s ease;
+                &:hover{
+                    box-shadow: none;
+                    transform: translate(0, 2px) !important;
+                }
+                svg {
+                }
+            }
+            + .shareButton {
+                .shareButtonLink{
+                    margin: 0px 0px 0px 7px;
+                }
+            }
+        }
+    }
     .img {
         display: block;
         border-radius: $siteRadius;
         position: relative;
         overflow: hidden;
         padding-bottom: 50%;
-        box-shadow: 4px 4px 0px 0px #212529;
+        box-shadow: 4px 4px 0px 0px $themeColor;
         margin-bottom: 30px;
         img {
             display: block;
@@ -960,8 +1065,8 @@ footer {
         font-size: 0.9rem;
         margin: 40px 0 0 0;
     }
-    .labelList{
-        .label{
+    .labelList {
+        .label {
             display: inline-block;
             background-color: #1dd7c2;
             padding: 6px 15px;
@@ -970,7 +1075,7 @@ footer {
             font-size: 0.8rem;
             color: white;
             border-radius: 20px;
-            border: 1px solid rgba(39, 39, 39, 0.75);
+            border: 1px solid $customBorderColor;
             box-shadow: 2px 2px 0px 0px $themeColor;
             svg {
                 stroke: rgba(0, 0, 0, 0.4);

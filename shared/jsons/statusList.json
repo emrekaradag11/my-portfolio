@@ -2,13 +2,13 @@
     "sunday": [
         {
             "type": "free",
-            "startTime": "10:00:00",
+            "startTime": "06:00:00",
             "endTime": "23:59:00"
         },
         {
             "type": "sleep",
             "startTime": "00:00:00",
-            "endTime": "10:00:00"
+            "endTime": "06:00:00"
         }
     ],
     "monday": [
@@ -20,7 +20,7 @@
         {
             "type": "sleep",
             "startTime": "00:00:00",
-            "endTime": "08:20:00"
+            "endTime": "08:30:00"
         },
         {
             "type": "work",
@@ -37,7 +37,7 @@
         {
             "type": "sleep",
             "startTime": "00:00:00",
-            "endTime": "08:20:00"
+            "endTime": "08:30:00"
         },
         {
             "type": "work",
@@ -54,7 +54,7 @@
         {
             "type": "sleep",
             "startTime": "00:00:00",
-            "endTime": "08:20:00"
+            "endTime": "08:30:00"
         },
         {
             "type": "work",
@@ -71,7 +71,7 @@
         {
             "type": "sleep",
             "startTime": "00:00:00",
-            "endTime": "08:20:00"
+            "endTime": "08:30:00"
         },
         {
             "type": "work",
@@ -88,7 +88,7 @@
         {
             "type": "sleep",
             "startTime": "00:00:00",
-            "endTime": "08:20:00"
+            "endTime": "08:30:00"
         },
         {
             "type": "work",
@@ -99,13 +99,13 @@
     "saturday": [
         {
             "type": "free",
-            "startTime": "10:00:00",
+            "startTime": "06:00:00",
             "endTime": "23:59:00"
         },
         {
             "type": "sleep",
             "startTime": "00:00:00",
-            "endTime": "10:00:00"
+            "endTime": "06:00:00"
         }
     ]
 }

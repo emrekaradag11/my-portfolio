@@ -1,4 +1,5 @@
 import { Html, Head, Main, NextScript } from 'next/document'
+import Script from 'next/script'
 
 export default function Document() {
   return (
@@ -11,6 +12,7 @@ export default function Document() {
         <link rel="mask-icon" href="/favicon_package/safari-pinned-tab.svg" color="#000000" />
         <meta name="msapplication-TileColor" content="#ffffff" />
         <meta name="theme-color" content="#ffffff" />
+        <Script src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-63bf8454e065b2d3"/>
       </Head>
       <body>
         <Main />

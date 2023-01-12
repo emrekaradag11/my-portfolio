@@ -6,7 +6,7 @@
     "free_time": "Serbest Zaman" ,
     "sleeping": "Uyuyorum" ,
     "working": "Çalışıyorum" ,
-    "copyright": "Tüm hakları saklıdır." ,
+    "copyright": "Her hakkı saklıdır." ,
     "readmore": "Devamını Oku" ,
     "buymecoffee":  "Buy Me a Coffee" ,
     "connectWithMe": "Bağlantı Kur" ,
@@ -15,5 +15,10 @@
     "software": "Yazılım",
     "developer": "Geliştirici",
     "discover": "Keşfet",
+    "comments": "Yorumlar",
+    "populartags": "Öne Çıkan Etiketler",
+    "dailytips": "Günlük Öneri",
+    "share": "Paylaş",
+    "send": "Gönder",
     "about_text": "Merhaba {{img}}, ben Emre. Türkiye'de front end geliştirici olarak görev yapıyorum. Yazılım geliştirme konusunda tutkuluyum. Diğer geliştiricilerle bağlantı kurmaya ve her zaman yeni arkadaşlar ve meslektaşlar edinmeye ilgi duyuyorum."
 }

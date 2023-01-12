@@ -50,7 +50,7 @@ function About() {
             imgHoverRef.current.style.setProperty('top', `${e.clientY}px`);
         }
     }
-
+    
     return (
         <section id='about'>
             <div className="inner">
