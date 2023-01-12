@@ -9,18 +9,18 @@ function Slider() {
   const sliderCenterRef = useRef<HTMLDivElement>(null);
   const marqueeRef = useRef<HTMLDivElement>(null);
   const titleRef = useRef<HTMLDivElement>(null);
-  
-  const handleClick = () => { 
+
+  const handleClick = () => {
     let i = 0;
     setInterval(() => {
       i++
-      if(i <= 1000){
+      if (i <= 1000) {
         window.scrollTo({
           top: i,
           behavior: 'smooth',
         });
       }
-    },1)
+    }, 1)
   };
 
   useEffect(() => {
@@ -77,7 +77,7 @@ function Slider() {
     })
   }
 
-  const skilList: any = ['Html', 'Php', 'Css', 'S(a|c)ss', 'Pixel Perfect', 'Mysql', 'Node.js', 'Javascript', 'React.js', 'Git', 'Express.js']
+  const skilList: any = ['Html', 'Php', 'Javascript', 'TypeScript', 'React.js', 'Redux', 'Css', 'S(a|c)ss', 'Tailwind', 'Pixel Perfect', 'Responsive Design', 'UI/UX', 'Cross-Browser', 'Git', 'Npm', 'Node.js', 'Express.js', 'Mysql']
 
   return (
     <section id='slider'>

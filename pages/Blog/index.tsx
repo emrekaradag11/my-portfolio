@@ -5,7 +5,7 @@ import Item from '../../components/Blog/Item'
 import { useDispatch, useSelector } from 'react-redux';
 
 interface blogItem {
-    id: string;
+    id: number;
     title: string;
     desc: string;
     date: string;
@@ -28,6 +28,7 @@ export default function Blog() {
                         {blogList.map((item: blogItem) => {
                             return <Item
                                 key={item.id}
+                                id={item.id}
                                 title={item.title}
                                 desc={item.desc}
                                 date={item.date}

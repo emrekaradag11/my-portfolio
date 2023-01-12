@@ -12,6 +12,7 @@ export default function Document() {
         <link rel="mask-icon" href="/favicon_package/safari-pinned-tab.svg" color="#000000" />
         <meta name="msapplication-TileColor" content="#ffffff" />
         <meta name="theme-color" content="#ffffff" />
+        <meta name="viewport" content="width=device-width , initial-scale=1.0" />
         <Script src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-63bf8454e065b2d3"/>
       </Head>
       <body>

@@ -9,6 +9,7 @@ interface Item {
   desc: string,
   date: string,
   link: string,
+  id: number,
 }
 
 function Item(props:Item) {

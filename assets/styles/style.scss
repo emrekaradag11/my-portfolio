@@ -17,6 +17,17 @@ $customColor7: rgba(255, 174, 171, 0.25);
 
 $customBorderColor : rgba(39, 39, 39, 0.75);
 
+$xs : '576px';
+$sm : '768px';
+$md : '992px';
+$lg : '1200px';
+$xl : '1400px';
+$xxl : '1600px';
+
+
+
+
+
 /* normalize css */
 html {
     line-height: 1.15;
@@ -245,6 +256,10 @@ p {
     padding: 30px;
     position: relative;
     z-index: 2;
+
+    @media screen and (max-width: $lg) {
+        padding: 15px;
+    }
     .sectionTitle {
         font-size: 8rem;
         display: block;
@@ -360,12 +375,21 @@ header {
         padding: 0 4rem;
         line-height: 60px;
         font-size: 1.4rem;
+        @media screen and (max-width: $lg) {      
+            padding: 0 2rem;
+            line-height: 45px;
+            font-size: 1rem;
+        }
     }
     img {
         display: inline-block;
         vertical-align: middle;
         user-select: none;
         pointer-events: none;
+        @media screen and (max-width: $lg) {
+            width: 25px;
+            height: 25px;
+        }
     }
     &:is(.colored) {
         background-color: $themeColor2;
@@ -388,6 +412,10 @@ header {
     height: calc(100vh - 60px);
     /* height: 200vh; */
     position: relative;
+
+    @media screen and (max-width: $lg) {
+        height: calc(100vh - 30px);
+    }
     .sliderInner {
         border-radius: $siteRadius;
         background-color: #fff;
@@ -418,7 +446,7 @@ header {
                 }
                 .img {
                     opacity: 1;
-                    transform: scale(1);
+                    transform: translate(-50%,-50%) scale(1);
                     transition-delay: 1.2s;
                 }
             }
@@ -448,6 +476,16 @@ header {
                 user-select: none;
                 pointer-events: none;
                 transform: translate3d(0px, 0px, 0px);
+                @media screen and (max-width: $xl) {
+                    font-size: 6rem;
+                }
+                @media screen and (max-width: $md) {
+                    font-size: 4rem;
+                    transform: translate3d(60px, 0px, 0px);
+                }
+                @media screen and (max-width: $sm) {
+                    font-size: 3rem;
+                }
                 .word {
                     display: block;
                     position: relative;
@@ -457,7 +495,10 @@ header {
                         span {
                             display: inline-block;
                             opacity: 0;
-                            letter-spacing: -7px;
+                            letter-spacing: -0.05em;
+                            @media screen and (max-width: $lg) {  
+                                letter-spacing: 0;
+                            }
                         }
                     }
                     .siteBtn {
@@ -465,12 +506,18 @@ header {
                         transform: translateY(10px);
                         user-select: initial;
                         pointer-events: initial;
+                        @media screen and (max-width: $lg) {  
+                            display: none;
+                        }
                     }
                     &:nth-child(2) {
-                        margin-left: -14.5rem;
+                        margin-left: -4.5rem;
                     }
                     &:nth-child(3) {
-                        margin-left: 14.3rem;
+                        margin-left: 14.5rem;
+                        @media screen and (max-width: $lg) {  
+                            margin-left: 4.5rem;
+                        }
                     }
                 }
             }
@@ -478,16 +525,27 @@ header {
                 height: 36rem;
                 width: 50rem;
                 position: absolute;
-                left: calc(50% - 25rem);
-                top: calc(50% - 18rem);
-                transform: scale(0.9);
+                left: 50%;
+                top: 50%;
+                transform: translate(-50%,-50%) scale(0.9);
                 z-index: 1;
                 transition: all 0.5s ease;
                 opacity: 0;
+                @media screen and (max-width: $xl) {
+                    height: 44vh;
+                    width: 46vw;
+                }
+                @media screen and (max-width: $md) {
+                    height: 50vh;
+                    width: calc(100vw - 100px);
+                }
                 > div {
-                    border-radius: 50px;
+                    border-radius: $siteRadius * 2.5;
                     position: relative;
                     overflow: hidden;
+                    @media screen and (max-width: $lg) {
+                        border-radius: $siteRadius;
+                    }
                 }
                 > div:before {
                     content: "";
@@ -503,6 +561,7 @@ header {
                     object-fit: cover;
                     object-position: center center;
                     height: 100%;
+                    width: 100%;
                     z-index: 2;
                 }
             }
@@ -514,6 +573,10 @@ header {
             display: flex;
             width: 100%;
             position: relative;
+
+            @media screen and (max-width: $md) {
+                font-size: 1rem;
+            }
             &:before,
             &:after {
                 content: "";
@@ -925,9 +988,10 @@ footer {
 
 .appPage {
     margin: 150px 0 0 0;
+    min-height: 80vh;
 }
 
-.blogDetail {
+.pageDetail {
     .sectionTitleSm {
         background-color: rgb(255, 255, 255);
         border: 1px solid $customBorderColor;
