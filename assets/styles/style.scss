@@ -15,18 +15,14 @@ $customColor5: rgba(197, 197, 254, 0.25);
 $customColor6: rgba(133, 178, 244, 0.25);
 $customColor7: rgba(255, 174, 171, 0.25);
 
-$customBorderColor : rgba(39, 39, 39, 0.75);
+$customBorderColor: rgba(39, 39, 39, 0.75);
 
-$xs : '576px';
-$sm : '768px';
-$md : '992px';
-$lg : '1200px';
-$xl : '1400px';
-$xxl : '1600px';
-
-
-
-
+$xs: "576px";
+$sm: "768px";
+$md: "992px";
+$lg: "1200px";
+$xl: "1400px";
+$xxl: "1600px";
 
 /* normalize css */
 html {
@@ -269,6 +265,15 @@ p {
         color: #ffffff;
         text-shadow: 3px -3px 0 $themeColor, -3px -3px 0 $themeColor, 3px 3px 0 $themeColor, 0 4px 0 $themeColor,
             0 -4px 0 $themeColor, 4px 0 0 $themeColor, -8px 7px 0 $themeColor;
+
+        @media screen and (max-width: $lg) {
+            font-size: 5rem;
+        }
+        @media screen and (max-width: $md) {
+            font-size: 3rem;
+            text-shadow: 1px -1px 0 $themeColor, -1px -1px 0 $themeColor, 1px 1px 0 $themeColor, 0 2px 0 $themeColor,
+                0 -2px 0 $themeColor, 2px 0 0 $themeColor, -4px 3px 0 $themeColor;
+        }
     }
     .sectionTitleSm {
         font-size: 2rem;
@@ -339,11 +344,18 @@ header {
     z-index: 9;
     transition: all 0.3s ease;
     border-radius: $siteRadius;
+    @media screen and (max-width: $lg) {
+        width: calc(100% - 30px);
+        padding: 0 15px;
+    }
     &:is(.active) {
         background-color: white;
         top: 10px;
         box-shadow: 0 0 20px 2px rgba(0, 8, 20, 0.1);
         padding: 20px 20px;
+        @media screen and (max-width: $lg) {
+            padding: 15px 15px;
+        }
     }
     .logo {
         display: block;
@@ -351,6 +363,75 @@ header {
             font-weight: bold;
             font-size: 1.8em;
         }
+    }
+
+    .mobileMenu {
+        .menuBtn {
+            width: 50px;
+            height: 50px;
+            vertical-align: middle;
+            background: $themeColor2;
+            border-radius: 0.4em;
+            cursor: pointer;
+            transition: all 0.3s ease;
+
+            .inner,
+            .inner:before,
+            .inner:after {
+                width: 6px;
+                height: 6px;
+                border-radius: 50%;
+                background: $themeColor;
+                transition: all 0.3s ease;
+            }
+
+            .inner {
+                margin: 0 auto;
+                position: relative;
+                top: 22px;
+
+                &:before,
+                &:after {
+                    content: "";
+                    position: absolute;
+                }
+
+                &:before {
+                    left: -12px;
+                }
+
+                &:after {
+                    left: 12px;
+                }
+            }
+
+            &:is(.active) {
+                .inner,
+                .inner:before,
+                .inner:after {
+                    height: 30px;
+                    border-radius: 3px;
+                }
+    
+                .inner {
+                    transform: translateY(-11px);
+                    background: transparent;
+                }
+    
+                .inner:before {
+                    transform: translateX(12px) rotate(225deg);
+                }
+    
+                .inner:after {
+                    transform: translateX(-12px) rotate(-225deg);
+                }
+            }
+        }
+
+ 
+    }
+    .mobileInner{
+
     }
 }
 .changeLangBtn {
@@ -375,7 +456,7 @@ header {
         padding: 0 4rem;
         line-height: 60px;
         font-size: 1.4rem;
-        @media screen and (max-width: $lg) {      
+        @media screen and (max-width: $lg) {
             padding: 0 2rem;
             line-height: 45px;
             font-size: 1rem;
@@ -446,7 +527,7 @@ header {
                 }
                 .img {
                     opacity: 1;
-                    transform: translate(-50%,-50%) scale(1);
+                    transform: translate(-50%, -50%) scale(1);
                     transition-delay: 1.2s;
                 }
             }
@@ -485,6 +566,11 @@ header {
                 }
                 @media screen and (max-width: $sm) {
                     font-size: 3rem;
+                    text-shadow: 1px -1px 0 $themeColor, -1px -1px 0 $themeColor, 1px 1px 0 $themeColor, 0 2px 0 $themeColor,
+                        0 -2px 0 $themeColor, 2px 0 0 $themeColor, -4px 3px 0 $themeColor;
+                }
+                @media screen and (max-width: $xs) {
+                    font-size: 2.5rem;
                 }
                 .word {
                     display: block;
@@ -496,7 +582,7 @@ header {
                             display: inline-block;
                             opacity: 0;
                             letter-spacing: -0.05em;
-                            @media screen and (max-width: $lg) {  
+                            @media screen and (max-width: $lg) {
                                 letter-spacing: 0;
                             }
                         }
@@ -506,7 +592,7 @@ header {
                         transform: translateY(10px);
                         user-select: initial;
                         pointer-events: initial;
-                        @media screen and (max-width: $lg) {  
+                        @media screen and (max-width: $lg) {
                             display: none;
                         }
                     }
@@ -515,7 +601,7 @@ header {
                     }
                     &:nth-child(3) {
                         margin-left: 14.5rem;
-                        @media screen and (max-width: $lg) {  
+                        @media screen and (max-width: $lg) {
                             margin-left: 4.5rem;
                         }
                     }
@@ -527,7 +613,7 @@ header {
                 position: absolute;
                 left: 50%;
                 top: 50%;
-                transform: translate(-50%,-50%) scale(0.9);
+                transform: translate(-50%, -50%) scale(0.9);
                 z-index: 1;
                 transition: all 0.5s ease;
                 opacity: 0;
@@ -664,6 +750,13 @@ header {
 
 #about {
     padding: 30vh 0;
+    @media screen and (max-width: $lg) {
+        padding: 15vh 0;
+    }
+
+    .sectionTitle {
+        white-space: nowrap;
+    }
     .myStatus {
         display: flex;
         border: 2px solid $themeColor;
@@ -681,6 +774,8 @@ header {
             pointer-events: none;
             transform: translateY(-100%) translateX(20px) scale(0);
             transition: transform 0.3s ease;
+            border-radius: 10px;
+            overflow: hidden;
         }
         &:hover {
             .imgHover {
@@ -911,7 +1006,7 @@ footer {
         border-radius: 70px;
         background: #f9f9f9;
         padding: 10px 10px;
-        font-size: 1.4rem;
+        font-size: 1.2rem;
         margin: 20px 0;
         overflow: hidden;
         display: block;
@@ -1092,8 +1187,8 @@ footer {
                 overflow: hidden;
                 border-radius: 50%;
                 box-shadow: 2px 2px 0px 0px $themeColor;
-                transition: all .2s ease;
-                &:hover{
+                transition: all 0.2s ease;
+                &:hover {
                     box-shadow: none;
                     transform: translate(0, 2px) !important;
                 }
@@ -1101,7 +1196,7 @@ footer {
                 }
             }
             + .shareButton {
-                .shareButtonLink{
+                .shareButtonLink {
                     margin: 0px 0px 0px 7px;
                 }
             }

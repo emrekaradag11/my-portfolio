@@ -2,7 +2,7 @@
     {
         "id" : "1",
         "title": "Github",
-        "img": "/images/githubWp.png",
+        "img": "/images/githubWp.jpg",
         "url": "https://github.com/emrekaradag11"
     },
     {
@@ -12,10 +12,10 @@
         "url": "https://www.linkedin.com/in/emrekaradag/"
     },
     {
-        "id" : "3",
-        "title": "Instagram",
-        "img": "/images/instagramWp.jpg",
-        "url": "https://www.instagram.com/emree_karadag/"
+        "id" : "5",
+        "title": "Dev.to",
+        "img": "/images/devWp.jpg",
+        "url": "https://dev.to/emrekaradag11"
     },
     {
         "id" : "4",
@@ -24,9 +24,15 @@
         "url": "https://twitter.com/emrekradag"
     },
     {
-        "id" : "5",
-        "title": "Dev.to",
-        "img": "/images/devWp.jpg",
-        "url": "https://dev.to/emrekaradag11"
+        "id" : "6",
+        "title": "Codepen.io",
+        "img": "/images/codepenWp.jpg",
+        "url": "https://codepen.io/emrekaradag11"
+    },
+    {
+        "id" : "3",
+        "title": "Instagram",
+        "img": "/images/instagramWp.jpg",
+        "url": "https://www.instagram.com/emree_karadag/"
     }
 ]
