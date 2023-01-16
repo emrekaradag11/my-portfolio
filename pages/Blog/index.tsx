@@ -24,7 +24,7 @@ export default function Blog() {
             <div className='appPage'>
                 <strong className="sectionTitle mb-5">Blog</strong>
                 <div className="container mx-auto">
-                    <div className='blogList grid grid-cols-2 gap-6'>
+                    <div className='blogList grid xl:grid-cols-2 gird-cols-1 gap-6'>
                         {blogList.map((item: blogItem) => {
                             return <Item
                                 key={item.id}

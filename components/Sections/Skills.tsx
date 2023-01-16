@@ -42,7 +42,7 @@ function Skills() {
       <strong className='title sectionTitle'>{t("skills")}</strong>
       <div className="skillList mt-6">
         <div className="container mx-auto">
-          <div className='w-2/3 mx-auto'>
+          <div className='md:w-2/3 w-1/1 mx-auto'>
             {skilList.map((item) => {
               return <Item key={item.id} title={item.title} id={item.id} desc={item.desc} titleSm={item.titleSm} />
             })}

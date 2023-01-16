@@ -38,7 +38,7 @@ export default function index() {
                 <strong className="sectionTitle mb-5">Daily Tips</strong>
                 <div className="container mx-auto">
                     <div className='flex flex-row pageDetail justify-center mt-10'> 
-                        <div className="wrapContent basis-1/2 !border-0 !p-0 !bg-transparent">
+                        <div className="wrapContent lg:basis-1/2 !border-0 !p-0 !bg-transparent">
                             <ul className='customList'>
                                 {dailyTips.map((x: any, y: any) => {
                                     return <li className='listItem' key={x.id}>

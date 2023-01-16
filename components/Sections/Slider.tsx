@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import Image from 'next/image'
 import useTranslation from 'next-translate/useTranslation'
 import Tilt from 'react-parallax-tilt';
@@ -9,23 +9,26 @@ function Slider() {
   const sliderCenterRef = useRef<HTMLDivElement>(null);
   const marqueeRef = useRef<HTMLDivElement>(null);
   const titleRef = useRef<HTMLDivElement>(null);
-
+  const [tiltStatus, setTiltStatus] = useState(true)
   const handleClick = () => {
-    let i = 0;
-    setInterval(() => {
-      i++
-      if (i <= 1000) {
-        window.scrollTo({
-          top: i,
-          behavior: 'smooth',
-        });
-      }
-    }, 1)
+    window.scrollTo({
+      top: 500,
+      left: 0,
+      behavior: 'smooth'
+    });
   };
 
+
   useEffect(() => {
-    Marquee(0.5)
-  })
+    function handleResize() {
+      if (document.body.clientWidth <= 576) {
+        setTiltStatus(false)
+      }
+    }
+    window.addEventListener("resize", handleResize);
+    handleResize();
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
   useEffect(() => {
     setTimeout(() => {
@@ -36,27 +39,6 @@ function Slider() {
     }, 100);
     SliderText()
   }, [])
-
-  const Marquee = (speed: number) => {
-
-    const clone: any = marqueeRef.current?.innerHTML;
-    const firstElement: any = marqueeRef.current?.children[0]!;
-    let i = 0;
-    marqueeRef.current?.insertAdjacentHTML('beforeend', clone);
-    marqueeRef.current?.insertAdjacentHTML('beforeend', clone);
-
-    setInterval(function () {
-      if (firstElement != null) {
-        firstElement.style.setProperty('margin-left', `-${i}px`);
-
-        if (i > firstElement.clientWidth)
-          i = 0;
-
-        i = i + speed;
-      }
-    }, 0);
-
-  }
 
   const SliderText = () => {
     const title = titleRef.current
@@ -106,8 +88,11 @@ function Slider() {
                 </div>
               </h1>
               <div className="img">
-                <Tilt className='h-full' trackOnWindow={true} tiltReverse={true} transitionSpeed={10000} >
-                  <video autoPlay loop>
+                <Tilt tiltEnable={tiltStatus} className='h-full' trackOnWindow={true} tiltReverse={true} transitionSpeed={10000} >
+                  <video loop
+                    muted
+                    autoPlay
+                    playsInline>
                     <source src="./introduction.mp4" type="video/mp4" />
                   </video>
                 </Tilt>
@@ -118,16 +103,19 @@ function Slider() {
         </div>
         <div className="bottomText marquee" ref={marqueeRef} >
           <ul className="inner">
-            {skilList.map((item: any, key: number) => (
-              <li key={key}>
-                <Image
-                  src="/images/star.svg"
-                  alt="star"
-                  width={30}
-                  height={30}
-                />
-                {item}</li>
-            ))}
+
+            {[...Array(3)].map((x, i) =>
+              skilList.map((item: any, key: number) => (
+                <li key={key}>
+                  <Image
+                    src="/images/star.svg"
+                    alt="star"
+                    width={30}
+                    height={30}
+                  />
+                  {item}</li>
+              ))
+            )}
           </ul>
         </div>
       </div>

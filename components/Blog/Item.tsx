@@ -16,7 +16,7 @@ function Item(props:Item) {
   const { t, lang } = useTranslation('common')
   return (
     <article className={props.propClass}>
-      <Link href={props.link} title={props.title} className="wrapper flex flex-row mx-auto">
+      <Link href={props.link} title={props.title} className="wrapper md:flex flex-row mx-auto">
         <div className='basis-4/12'>
           <div className="img">
             <div className="inner">
@@ -33,7 +33,8 @@ function Item(props:Item) {
                   </svg>
                   Technology
                 </div>
-                <div className="date">{props.date}</div>
+                <div className='sm:hidden block mt-5'></div>
+                <div className="date ">{props.date}</div>
                 <div className="read">3 mins read</div>
               </div>
               <strong className='title'>{props.title}</strong>

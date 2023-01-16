@@ -54,11 +54,11 @@ function About() {
     return (
         <section id='about'>
             <div className="inner">
-                <strong className='title sectionTitle' ref={aboutTitleRef}>{t("who_am_i")}</strong>
+                <strong className='title sectionTitle' ref={aboutTitleRef}><span>{t("who_am_i")}</span><span>{t("who_am_i")}</span></strong>
                 <div className="container mx-auto">
                     <div className='flex flex-row'>
                         <div className="mt-6 md:basis-7/12 basis-1/1 mx-auto text-center">
-                            <div className="siteText text-xl" dangerouslySetInnerHTML={{ __html: t('about_text').replace('{{img}}', `<img width='30' class="inline-block align-middle" src="/images/waving-hand.svg" alt="" />`) }}></div>
+                            <div className="siteText lg:text-xl" dangerouslySetInnerHTML={{ __html: t('about_text').replace('{{img}}', `<img width='30' class="inline-block align-middle" src="/images/waving-hand.svg" alt="" />`) }}></div>
                             <div className="myStatus" onMouseMove={(e) => handleHoverEffect(e)} id='myStatus'>
                                 <div className="imgHover" ref={imgHoverRef} id='imgHover'>
                                     <Image

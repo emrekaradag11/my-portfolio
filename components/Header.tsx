@@ -1,18 +1,13 @@
 import React, { useEffect, useRef, useState } from 'react'
-import { changeLang } from '../store/reducers'
-import { useDispatch, useSelector } from 'react-redux';
 import Link from 'next/link';
 import Image from 'next/image';
 import useTranslation from 'next-translate/useTranslation'
 
 function Header() {
   const { t, lang } = useTranslation('common')
-  const dispatch = useDispatch()
-  const handleChangeLang = (id: Number) => dispatch(changeLang(id))
   const [mobileMenu, setMobileMenu] = useState(0)
 
   const headerRef = useRef<HTMLDivElement>(null);
-
 
   const handleScroll = () => {
     if (window.scrollY > 0) headerRef.current?.classList.add('active')

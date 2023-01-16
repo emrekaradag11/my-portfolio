@@ -1,6 +1,4 @@
 import React from 'react'
-import workJpeg from '../../public/images/work.webp'
-import Image from 'next/image'
 
 type Props = {
     title : string

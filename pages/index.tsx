@@ -8,12 +8,12 @@ import Layout from '../components/Layout/Layout';
 
 type Props = {}
 
-export default function Home({}: Props) {
+export default function Home({ }: Props) {
   return (
     <Layout>
       <Head>
         <title>Emre Karadağ | Frontend Developer</title>
-        <meta name="description" content="Emre Karadağ | Frontend Developer" />
+        <meta name="desscription" content="Emre Karadağ | Frontend Developer" />
       </Head>
       <Slider />
       <About />
