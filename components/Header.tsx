@@ -5,8 +5,6 @@ import useTranslation from 'next-translate/useTranslation'
 
 function Header() {
   const { t, lang } = useTranslation('common')
-  const [mobileMenu, setMobileMenu] = useState(0)
-
   const headerRef = useRef<HTMLDivElement>(null);
 
   const handleScroll = () => {
@@ -30,8 +28,8 @@ function Header() {
           </div>
           <div>
             <a href={lang === 'en' ? '/tr' : '/en'} className='changeLangBtn mr-4 align-middle'>{t("getLangName")}</a>
-            <Link href={`/Blog`} className='siteBtn mr-4 !hidden lg:!inline-block'> {t("blog")}</Link>
-            <a href='mailto:emrekaradag11@hotmail.com' rel='nofollow' className='siteBtn colored mr-4 !hidden lg:!inline-block'>
+            <Link href={`/blog`} className='siteBtn mr-4 !hidden sm:!inline-block'> {t("blog")}</Link>
+            <a href='mailto:emrekaradag11@hotmail.com' rel='nofollow' className='siteBtn colored mr-4 !hidden sm:!inline-block'>
               <Image
                 src={"/images/letter-v.png"}
                 alt={t("letsworktogether")}
@@ -41,7 +39,7 @@ function Header() {
               />
               {t("letsworktogether")}
             </a>
-            <a href='https://www.buymeacoffee.com/emrekaradag' target='_blank' rel="nofollow noreferrer" className='siteBtn colored !hidden lg:!inline-block'>
+            <a href='https://www.buymeacoffee.com/emrekaradag' target='_blank' rel="nofollow noreferrer" className='siteBtn colored !hidden sm:!inline-block'>
               <Image
                 src={"/images/coffee-cup.png"}
                 alt={t("buymecoffee")}
@@ -51,13 +49,7 @@ function Header() {
               />
               {t("buymecoffee")}
             </a>
-            <div className="mobileMenu !inline-block lg:!hidden  align-middle">
-              <div className={(mobileMenu === 0 ? '' : 'active') + " menuBtn"} onClick={() => setMobileMenu(mobileMenu === 0 ? 1 : 0)}><div className="inner"></div></div>
-            </div>
           </div>
-        </div>
-        <div className={(mobileMenu === 0 ? '' : 'active') + " mobileInner"}>
-
         </div>
       </header>
     </>

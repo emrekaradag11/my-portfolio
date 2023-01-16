@@ -30,9 +30,9 @@ export default function Blog() {
                 <div className='pageDetail container mx-auto flex flex-row'>
                     <div className="md:basis-10/12 mx-auto">
                         <div className="flex flex-row">
-                            <div className='md:basis-8/12 px-3 mx-auto'>
+                            <div className='md:basis-8/12 lg:px-3 mx-auto'>
                                 <div className="wrapContent bg-custom4">
-                                    <div className="flex flex-row mx-auto items-center">
+                                    <div className="lg:flex flex-row mx-auto items-center">
                                         <div className="basis-4/12">
                                             <div className="labels justify-center !m-0 !scale-125">
                                                 <div className='block items-center text-center'>
@@ -42,11 +42,12 @@ export default function Blog() {
                                                         </svg>
                                                         Technology
                                                     </div>
+                                                    <div className="block"></div>
                                                     <div className="date !mt-4">8 Articles</div>
                                                 </div>
                                             </div>
                                         </div>
-                                        <div className="basis-8/12">
+                                        <div className="basis-8/12 lg:mt-0 mt-4">
                                             <p className='m-0'>Sometimes you might want to put your site behind closed doors</p>
                                         </div>
                                     </div>
@@ -57,7 +58,7 @@ export default function Blog() {
                 </div>
                 
                 <div className="container mx-auto">
-                    <div className='blogList grid grid-cols-2 gap-6'>
+                    <div className='blogList grid xl:grid-cols-2 gird-cols-1 gap-6'>
                         {blogList.map((item: blogItem) => {
                             return <Item
                                 key={item.id}

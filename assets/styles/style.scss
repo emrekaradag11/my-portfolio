@@ -274,6 +274,9 @@ p {
         @media screen and (max-width: $md) {
             font-size: 3rem;
         }
+        @media screen and (max-width: $sm) {
+            font-size: 2.5rem;
+        }
     }
     .sectionTitleSm {
         font-size: 2rem;
@@ -350,6 +353,7 @@ header {
     z-index: 9;
     transition: all 0.3s ease;
     border-radius: $siteRadius;
+    background-color: white;
     @media screen and (max-width: $lg) {
         width: calc(100% - 30px);
         padding: 0 15px;
@@ -435,6 +439,13 @@ header {
         }
     }
     .mobileInner {
+        transition: all .3s ease;
+        position: relative;
+        overflow: hidden;
+        height: 0;
+        &:is(.active){
+            height: 200px;
+        }
     }
 }
 .changeLangBtn {
@@ -806,6 +817,9 @@ header {
         font-size: 1.3rem;
         align-items: center;
         position: relative;
+        @media screen and (max-width: $sm) {
+            font-size: 1rem;
+        }
         .imgHover {
             position: fixed;
             user-select: none;
@@ -1061,6 +1075,9 @@ footer {
     text-align: center;
     margin: 30px 0 10px 0;
     font-size: 14px;
+    @media screen and (max-width: $sm) {
+        margin: 30px 0 60px 0;
+    }
 }
 @keyframes translateX {
     from {
@@ -1345,6 +1362,24 @@ footer {
                 margin: 0 5px 0 0;
             }
         }
+    }
+}
+.mobileFixed{
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 15px;
+    margin: 0 auto;
+    z-index: 9;
+    width: calc(100% - 30px);
+    border-radius: $siteRadius;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    .siteBtn{
+        font-size: 0.6rem;
+        width: 100%;
+        padding: 0 1rem;
     }
 }
 

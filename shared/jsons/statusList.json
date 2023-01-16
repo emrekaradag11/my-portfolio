@@ -2,109 +2,109 @@
     "sunday": [
         {
             "type": "free",
-            "startTime": "06:00:00",
-            "endTime": "23:59:00"
+            "startTime": "06:00:01",
+            "endTime": "00:00:00"
         },
         {
             "type": "sleep",
-            "startTime": "00:00:00",
+            "startTime": "00:00:01",
             "endTime": "06:00:00"
         }
     ],
     "monday": [
         {
             "type": "free",
-            "startTime": "18:30:00",
-            "endTime": "23:59:00"
+            "startTime": "18:30:01",
+            "endTime": "00:00:00"
         },
         {
             "type": "sleep",
-            "startTime": "00:00:00",
+            "startTime": "00:00:01",
             "endTime": "08:30:00"
         },
         {
             "type": "work",
-            "startTime": "08:30:00",
+            "startTime": "08:30:01",
             "endTime": "18:30:00"
         }
     ],
     "tuesday": [
         {
             "type": "free",
-            "startTime": "18:30:00",
-            "endTime": "23:59:00"
+            "startTime": "18:30:01",
+            "endTime": "00:00:00"
         },
         {
             "type": "sleep",
-            "startTime": "00:00:00",
+            "startTime": "00:00:01",
             "endTime": "08:30:00"
         },
         {
             "type": "work",
-            "startTime": "08:30:00",
+            "startTime": "08:30:01",
             "endTime": "18:30:00"
         }
     ],
     "wednesday": [
         {
             "type": "free",
-            "startTime": "18:30:00",
-            "endTime": "23:59:00"
+            "startTime": "18:30:01",
+            "endTime": "00:00:00"
         },
         {
             "type": "sleep",
-            "startTime": "00:00:00",
+            "startTime": "00:00:01",
             "endTime": "08:30:00"
         },
         {
             "type": "work",
-            "startTime": "08:30:00",
+            "startTime": "08:30:01",
             "endTime": "18:30:00"
         }
     ],
     "thursday": [
         {
             "type": "free",
-            "startTime": "18:30:00",
-            "endTime": "23:59:00"
+            "startTime": "18:30:01",
+            "endTime": "00:00:00"
         },
         {
             "type": "sleep",
-            "startTime": "00:00:00",
+            "startTime": "00:00:01",
             "endTime": "08:30:00"
         },
         {
             "type": "work",
-            "startTime": "08:30:00",
+            "startTime": "08:30:01",
             "endTime": "18:30:00"
         }
     ],
     "friday": [
         {
             "type": "free",
-            "startTime": "18:30:00",
-            "endTime": "23:59:00"
+            "startTime": "18:30:01",
+            "endTime": "00:00:00"
         },
         {
             "type": "sleep",
-            "startTime": "00:00:00",
+            "startTime": "00:00:01",
             "endTime": "08:30:00"
         },
         {
             "type": "work",
-            "startTime": "08:30:00",
+            "startTime": "08:30:01",
             "endTime": "18:30:00"
         }
     ],
     "saturday": [
         {
             "type": "free",
-            "startTime": "06:00:00",
-            "endTime": "23:59:00"
+            "startTime": "06:00:01",
+            "endTime": "00:00:00"
         },
         {
             "type": "sleep",
-            "startTime": "00:00:00",
+            "startTime": "00:00:01",
             "endTime": "06:00:00"
         }
     ]
