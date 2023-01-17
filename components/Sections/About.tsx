@@ -37,6 +37,11 @@ function About() {
     const status : any = statusListJson[currentWeekDay as keyof typeof statusListJson].find((item: any) => {
         const startTime = moment(item.startTime, format);
         const endTime = moment(item.endTime, format);
+        console.log(currentTime);
+        console.log(startTime);
+        console.log(endTime);
+        console.log(currentTime.isBetween(startTime, endTime));
+        
         return currentTime.isBetween(startTime, endTime)
     })
 
@@ -51,6 +56,7 @@ function About() {
         }
     }
     
+    
     return (
         <section id='about'>
             <div className="inner">
@@ -62,7 +68,7 @@ function About() {
                             <div className="myStatus" onMouseMove={(e) => handleHoverEffect(e)} id='myStatus'>
                                 <div className="imgHover" ref={imgHoverRef} id='imgHover'>
                                     <Image
-                                        src={"/images/status/" + iconList[status.type  as keyof typeof iconList].img}
+                                        src={"/images/status/" + iconList[status?.type  as keyof typeof iconList]?.img}
                                         alt='HoverImage'
                                         className="block"
                                         width={376}
@@ -74,14 +80,14 @@ function About() {
                                 <div className="status">
                                     <span className="icon inline-block align-middle mr-2">
                                         <Image
-                                            src={"/images/status/" + iconList[status.type  as keyof typeof iconList].icon}
-                                            alt={iconList[status.type  as keyof typeof iconList].text ?? 'image'}
+                                            src={"/images/status/" + iconList[status?.type  as keyof typeof iconList]?.icon}
+                                            alt={iconList[status?.type  as keyof typeof iconList]?.text ?? 'image'}
                                             width={32}
                                             height={32}
                                             className="block"
                                         />
                                     </span>
-                                    {t(iconList[status.type  as keyof typeof iconList].text)}
+                                    {t(iconList[status?.type  as keyof typeof iconList]?.text)}
                                 </div>
                             </div>
                         </div>
